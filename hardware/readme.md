@@ -3,4 +3,4 @@
 ### Currently it contains:
 
 - The bill of materials 
-- `.stl` files 
+- .stl files from https://www.thingiverse.com/thing:4420496
