@@ -1,0 +1,10 @@
+Model 4 
+HQ picam lens - https://www.adafruit.com/product/4563
+HQ picam - https://www.adafruit.com/product/4561
+push button - https://www.amazon.com/TWTADE-Momentary-Button-Normally-PBS-110-X-BK/dp/B07X3RRG37/ref=sr_1_10?dchild=1&keywords=push+button&qid=1620413818&sr=8-10
+pi RTC - https://www.adafruit.com/product/4282
+RTC battery - https://www.amazon.com/Energizer-CR1220-Drain-lithuim-Battery/dp/B003CU3E2Q/ref=sr_1_6?dchild=1&keywords=CR1220+battery&qid=1620600534&sr=8-6
+Touch display - https://www.amazon.com/Raspberry-Pi-7-Touchscreen-Display/dp/B0153R2A9I/ref=sxin_7_ac_d_rm?ac_md=0-0-cmFzcGJlcnJ5IHBpIGRpc3BsYXk%3D-ac_d_rm&cv_ct_cx=raspberry+pi+display&dchild=1&keywords=raspberry+pi+display&pd_rd_i=B0153R2A9I&pd_rd_r=d63658fa-16f7-48d5-91f1-a83401d48e72&pd_rd_w=DuaMN&pd_rd_wg=u3yDF&pf_rd_p=1493ce18-a74b-4311-9662-82d8e55e9a65&pf_rd_r=7V7SFR44H271BRCJ3947&psc=1&qid=1620600701&sr=1-1-12d4272d-8adb-4121-8624-135149aa9081
+Display case - https://www.amazon.com/SmartiPi-Touch-Official-Raspberry-Touchscreen/dp/B07WXK38YM/ref=sxin_7_ac_d_rm?ac_md=1-1-cmFzcGJlcnJ5IHBpIGRpc3BsYXkgY2FzZQ%3D%3D-ac_d_rm&cv_ct_cx=raspberry+pi+display&dchild=1&keywords=raspberry+pi+display&pd_rd_i=B07WXK38YM&pd_rd_r=d63658fa-16f7-48d5-91f1-a83401d48e72&pd_rd_w=DuaMN&pd_rd_wg=u3yDF&pf_rd_p=1493ce18-a74b-4311-9662-82d8e55e9a65&pf_rd_r=7V7SFR44H271BRCJ3947&psc=1&qid=1620600701&sr=1-2-12d4272d-8adb-4121-8624-135149aa9081
+GPS - https://ozzmaker.com/product/berrygps-imu/
+Header pin expansion board - https://www.amazon.com/GeeekPi-Connectors-Raspberry-Expansion-Compatible/dp/B0888W3XN4/ref=sr_1_19?dchild=1&keywords=header+pin+split&qid=1621869657&sr=8-19
