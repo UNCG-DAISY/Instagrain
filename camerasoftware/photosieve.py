@@ -34,24 +34,29 @@ def capture():
 	txtfile.close()
 	counter += 1
 
-try:	
-	
+#run function
+try:
 	while True:
 		#Setting lat,lon, and alt as variables
 		report = gpsd.next() 
 		if report['class'] == 'TPV':
-	             if getattr(report,'lat',0.0)!=0:
-					 lat1 = str(getattr(report,'lat',0.0))
-	             if getattr(report,'lon',0.0)!=0:
-					 lon1 = str(getattr(report,'lon',0.0))
-	             if getattr(report,'alt','nan')!= 'nan':
-					 alt1 = str(getattr(report,'alt','nan'))
+			if getattr(report,'lat',0.0)!=0:
+				lat1 = str(getattr(report,'lat',0.0))
+			else:
+				lat1 = "ERROR"
+			if getattr(report,'lon',0.0)!=0:
+				lon1 = str(getattr(report,'lon',0.0))
+			else:
+				lon1 = "ERROR"
+			if getattr(report,'alt','nan')!= 'nan':
+				alt1 = str(getattr(report,'alt','nan'))
+			else:
+				alt1 = "ERROR"
 		#Everything else
 		led.source = previewbtn
 		previewbtn.when_pressed = camera.start_preview
 		previewbtn.when_held = capture
 		previewbtn.when_released = camera.stop_preview
-	
-except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
-    print "Done.\nExiting."
+except(KeyboardInterrupt, SystemExit):
+	print "Done.\nExiting"	
 	
