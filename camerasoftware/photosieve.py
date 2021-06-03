@@ -25,13 +25,13 @@ txtfile.close()
 
 #define functions
 def capture():
+	global counter
 	camera.capture(newpath + '/' + direcname + str(counter) + '.jpg')
 	txtfile = open(newpath + '/' + direcname + '.csv', 'a')
 	txtfile.write("\n")
 	txtfile.write( direcname + str(counter) + ',' + str(datetime.datetime.now()) +
 	',' + lat1 + ',' + lon1 + ','+ alt1)
 	txtfile.close()
-	global counter 
 	counter += 1
 
 try:	
