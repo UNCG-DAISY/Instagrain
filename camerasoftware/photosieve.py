@@ -42,16 +42,14 @@ try:
 		if report['class'] == 'TPV':
 			if getattr(report,'lat',0.0)!=0:
 				lat1 = str(getattr(report,'lat',0.0))
-			else:
-				lat1 = "ERROR"
 			if getattr(report,'lon',0.0)!=0:
 				lon1 = str(getattr(report,'lon',0.0))
-			else:
-				lon1 = "ERROR"
 			if getattr(report,'alt','nan')!= 'nan':
 				alt1 = str(getattr(report,'alt','nan'))
-			else:
-				alt1 = "ERROR"
+		else:
+			lat1 = "ERROR"
+			lon1 = "ERROR"
+			alt1 = "ERROR"
 		#Everything else
 		led.source = previewbtn
 		previewbtn.when_pressed = camera.start_preview
