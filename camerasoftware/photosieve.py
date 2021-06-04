@@ -16,7 +16,7 @@ counter = 1
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
 
 #make new directory and create text file within
-direcname = str(raw_input("name your file: "))
+direcname = str(input("name your file: "))
 newpath = pwd + '/' + direcname
 os.makedirs(newpath)
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
@@ -56,5 +56,5 @@ try:
 		previewbtn.when_held = capture
 		previewbtn.when_released = camera.stop_preview
 except(KeyboardInterrupt, SystemExit):
-	print "Done.\nExiting"	
+	print("Done.\nExiting")	
 	
