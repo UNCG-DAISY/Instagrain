@@ -25,14 +25,14 @@ def sediformat(input, unit, weights, l_s, u_s, img, pixel):
 		
 	#figure out values
 	lst = np.interp([5,10,16,25,50,75,84,95],cumulative_weights,invaluestomm)
-	pxllst = [pixels*i for i in lst]
-	per = map(str, pxllst)
 
 	# create csv file
 	pwd = os.getcwd()
 	txtfile = open(pwd + '/' + 'sediformat.csv', 'w+')
 	txtfile.write('file, min_sieve, max_sieve, average_sieve, p5, p10, p16, p25, p50, p75, p84, p95')
 	for i in range(len(img)):
+		pxllst = [pixels[i]*k for k in lst]
+		per = map(str, pxllst)
 		txtfile.write("\n")
 		txtfile.write(img[i] + ',' + str(l_s) + ',' + str(u_s) + ',' + str(avg) + ',' + per[0] + ',' + per[1] + ',' + per[2] + ',' + per[3] + ',' + per[4] + ',' + per[5]+ ',' + per[6] + ',' + per[7])
 	txtfile.close()
