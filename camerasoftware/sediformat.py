@@ -31,7 +31,7 @@ def sediformat(input, unit, weights, l_s, u_s, img, pixel):
 	# create csv file
 	pwd = os.getcwd()
 	txtfile = open(pwd + '/' + 'sediformat.csv', 'w+')
-	txtfile.write('file, min_sieve, max_sieve, average_sieve, D5, D10, D16, D25, D50, D75, D84, D95')
+	txtfile.write('file, min_sieve, max_sieve, average_sieve, p5, p10, p16, p25, p50, p75, p84, p95')
 	for i in range(len(img)):
 		txtfile.write("\n")
 		txtfile.write(img[i] + ',' + str(l_s) + ',' + str(u_s) + ',' + str(avg) + ',' + per[0] + ',' + per[1] + ',' + per[2] + ',' + per[3] + ',' + per[4] + ',' + per[5]+ ',' + per[6] + ',' + per[7])
@@ -43,7 +43,7 @@ cumulative_weights= [ 1.57, 5.97, 12.63, 21.68, 32.97, 53.94, 90.41, 99.35, 99.9
 units = "phi"
 lowersieve = 10
 uppersieve = 230
-img = ['N7B.jpg','N6B.jpg','N5B.jpg']
-pixels = 19.775
+img = ['3in.jpg','4in.jpg','5in.jpg', '6in.jpg', '7in.jpg']
+pixels = [19.775, 14.832, 11.865, 9.914, 8.514]
 
 sediformat(phi, units, cumulative_weights, lowersieve, uppersieve, img, pixels)
