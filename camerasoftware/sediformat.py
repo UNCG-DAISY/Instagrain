@@ -24,7 +24,7 @@ def sediformat(input, unit, weights, l_s, u_s, img, pixel):
 		
 		
 	#figure out values
-	lst = np.interp([5,10,16,25,50,75,84,95],cumulative_weights,invaluestomm)
+	lst = np.interp([95,84,75,50,25,16,10,5],cumulative_weights,invaluestomm)
 
 	# create csv file
 	pwd = os.getcwd()
