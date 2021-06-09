@@ -1,5 +1,5 @@
 #import packages
-from gpiozero import Button, LED
+from gpiozero import Button
 from picamera import PiCamera
 import os
 import datetime
@@ -8,7 +8,6 @@ from gps import *
 #define gpio pins and variables
 pwd = os.getcwd()
 camera = PiCamera()
-led = LED(13)
 previewbtn = Button(26, hold_time=2) 
 counter = 1
 
@@ -34,6 +33,14 @@ def capture():
 	txtfile.close()
 	counter += 1
 
+def previewon():
+	camera.start_preview()
+	subprocess.call(["./ringledon.sh"])
+	
+def previewoff():
+	camera.stop_preview()
+	subprocess.call(["./ringledoff.sh"])
+	
 #run function
 try:
 	while True:
@@ -51,10 +58,9 @@ try:
 			lon1 = "ERROR"
 			alt1 = "ERROR"
 		#Everything else
-		led.source = previewbtn
-		previewbtn.when_pressed = camera.start_preview
+		previewbtn.when_pressed = previewon
 		previewbtn.when_held = capture
-		previewbtn.when_released = camera.stop_preview
+		previewbtn.when_released = previewoff 
 except(KeyboardInterrupt, SystemExit):
 	print("Done.\nExiting")	
 	
