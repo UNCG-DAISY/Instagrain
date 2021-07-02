@@ -36,7 +36,8 @@ config GPS to work with correct serial device
 `sudo nano /etc/default/gpsd`  
 Look for  `DEVICES=""`  
 Change to `DEVICES="/dev/serial0"`  
-Now save file (control X, Y)  
+Now save file (control X, Y) 
+`sudo pip3 install gps` to download gps for python3
 
 ###### set up RTC
 
