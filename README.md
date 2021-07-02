@@ -40,11 +40,19 @@ Now save file (control X, Y)
 `sudo pip3 install gps` to download gps for python3
 
 ###### set up RTC
+`sudo raspi-config` Interface options -> C5 I2C -> yes -> finish  
+`sudo reboot`
+`sudo nano /boot/config.txt`
+Add to the end
+`#rtc 
+dtoverlay=i2c-rtc,ds3231`
+control x, y, enter to save and exit 
+
 
 ###### set up LED Ring Flash
 
 Helpful instructions to get packages for flash, GPS, and RTC  
-https://www.thegeekpub.com/16187/controlling-ws2812b-leds-with-a-raspberry-pi/ 
+https://www.thegeekpub.com/16187/controlling-ws2812b-leds-with-a-raspberry-pi/  
 https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/  
 https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi  
 
