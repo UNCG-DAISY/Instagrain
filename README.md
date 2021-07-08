@@ -14,7 +14,7 @@ sudo reboot
 
 ## Configure Pi
 
-Applications menu -> Preferences -> Raspberry Pi Configuration -> Interfaces -> ENABLE; Camera, SPI, I2C (SSH, VNC are optional)
+Applications menu -> Preferences -> Raspberry Pi Configuration -> Interfaces -> ENABLE; Camera, SPI, I2C (SSH, VNC are optional)  
 `sudo reboot` 
 
 ## Add Hardware
@@ -24,15 +24,14 @@ Power Raspi off and add header extension, attach GPS to UART pins. Place RTC on 
 Connect Pi HQ camera to raspberry pi  
 
 Connect Button to GPIO26 and to GND 
-Connect Flash to GPIO18, 5v (back of RTC), and GND  
+Connect LED light to GPIO18, 5v (back of RTC), and GND  
 Power Raspberry pi on   
 
 ## set up GPS
 
-`sudo raspi-config`  
+`sudo raspi-config`    
 interfacing options -> Serial -> No -> Yes   
-then reboot  
-`pip3 install gps`  
+then reboot   
 
 config GPS to work with correct serial device  
 `sudo nano /etc/default/gpsd`  
@@ -44,7 +43,7 @@ Now save file (control X, Y)
 
 ## set up RTC
 
-`sudo raspi-config` Interface options -> C5 I2C -> yes -> finish 
+`sudo raspi-config` Interface options -> P5 I2C -> yes -> finish  
 <img width="502" alt="Screen Shot 2021-07-02 at 12 03 23 PM" src="https://user-images.githubusercontent.com/72474059/124324683-651a7a00-db51-11eb-9ab6-369bd1b30153.png">
 <img width="502" alt="Screen Shot 2021-07-02 at 12 03 43 PM" src="https://user-images.githubusercontent.com/72474059/124324681-651a7a00-db51-11eb-83ec-318309767175.png">
 <img width="502" alt="Screen Shot 2021-07-02 at 12 04 38 PM" src="https://user-images.githubusercontent.com/72474059/124324680-6481e380-db51-11eb-9981-be4f91f25073.png">
@@ -71,7 +70,8 @@ https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/
 https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi  
 
 ## Usage
-When Pi computer is booted up, open terminal and change directory to photosieve.py  
-`python3 photosieve.py`  
+When Pi computer is booted up, open terminal and change directory to location of photosieve.py  
+Enter command `python3 photosieve.py` in terminal to run photosieve, to see a preview press button and to take a picture hold the button for 2 seconds  
+Photos and a text file will be stored in a new folder name of your choosing, the text file will have every photo with the time taken, corresponding GPS coordinates, and altitude.  
 <img width="699" alt="Screen Shot 2021-07-02 at 12 30 42 PM" src="https://user-images.githubusercontent.com/72474059/124324666-62b82000-db51-11eb-9946-f49eceb3640a.png">
 <img width="717" alt="Screen Shot 2021-07-02 at 12 30 16 PM" src="https://user-images.githubusercontent.com/72474059/124324668-6350b680-db51-11eb-8f29-a62ef0759309.png">
