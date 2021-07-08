@@ -52,7 +52,7 @@ Now save file (control X, Y)
 `sudo reboot`  
 Now install this package to see if the raspberry pi recognizes the RTC  
 `sudo apt-get install python-smbus i2c-tools`   
-`sudo i2cdetect -y 1` will show mounted drives, you should see a 68
+`sudo i2cdetect -y 1` will show mounted drives, you should see a 68  
 <img width="502" alt="Screen Shot 2021-07-02 at 12 06 21 PM" src="https://user-images.githubusercontent.com/72474059/124324676-63e94d00-db51-11eb-8588-0b36c7acb4bb.png">  
 `sudo nano /boot/config.txt`        
 Add to the end    
