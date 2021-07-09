@@ -61,7 +61,7 @@ dtoverlay=i2c-rtc,ds3231`
 save and exit (control x, y, enter)   
 <img width="501" alt="Screen Shot 2021-07-02 at 12 07 14 PM" src="https://user-images.githubusercontent.com/72474059/124324675-63e94d00-db51-11eb-94cc-bf6d3439c419.png">  
 Now that we have the RTC ready to work on boot, restart your pi and..
-`sudo i2cdetect -y 1` a mounted drive will have a "UU" ID
+`sudo i2cdetect -y 1` a mounted drive will have a "UU" ID  
 <img width="499" alt="Screen Shot 2021-07-02 at 12 09 07 PM" src="https://user-images.githubusercontent.com/72474059/124324672-63e94d00-db51-11eb-9099-01946bae5407.png">
 
 Helpful instructions to get packages for flash, GPS, and RTC  
