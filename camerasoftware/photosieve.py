@@ -40,6 +40,10 @@ def previewon():
 def previewoff():
 	camera.stop_preview()
 	subprocess.call(["./ringledoff.sh"])
+
+def pyDGS():
+	subprocess.call[(python3 "pyDGS.py")]
+	
 	
 #run function
 try:
