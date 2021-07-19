@@ -16,4 +16,16 @@ body_sedicam.ipt(front)
 body_sedicam.ipt(back)  
 <img width="745" alt="Screen Shot 2021-07-14 at 8 50 39 PM" src="https://user-images.githubusercontent.com/72474059/125711955-62b2cdde-af35-44de-bd18-64fb235adda1.png">   
 
+![[trial](https://github.com/UNCG-DAISY/SediNetCam/blob/main/hardware/cameracover.stl)]
 
+![](https://github.com/UNCG-DAISY/SediNetCam/blob/main/hardware/cameracover.stl)
+
+!<script src="https://embed.github.com/view/3d/cameracover.stl"></script> 
+
+<script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
+
+<script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
+
+https://github.com/UNCG-DAISY/SediNetCam/blob/a0cd53eac881ca1e82a0920dc550da7626b6ae7a/hardware/arm.stl
+
+hardware/arm.stl
