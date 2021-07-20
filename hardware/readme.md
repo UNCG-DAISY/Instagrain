@@ -3,16 +3,23 @@
 - The bill of materials (`BOM.txt`)
 ---
 # Pictures of all parts and assembly
-Screenmount_sedicam.ipt  
-<img width="573" alt="Screen Shot 2021-07-14 at 8 58 57 PM" src="https://user-images.githubusercontent.com/72474059/125711767-f39b132a-0959-4725-9efa-551312218238.png">   
-battery_case.ipt  
-<img width="414" alt="Screen Shot 2021-07-14 at 8 56 32 PM" src="https://user-images.githubusercontent.com/72474059/125711903-37e191cf-20fe-409c-8d64-c29ba5423ce9.png">  
-usbdoor_sedicam.ipt  
-<img width="623" alt="Screen Shot 2021-07-14 at 8 54 17 PM" src="https://user-images.githubusercontent.com/72474059/125711919-2388217d-4e55-4fd1-872d-65900edf8feb.png">  
-spacing_sedicam.ipt  
-<img width="688" alt="Screen Shot 2021-07-14 at 8 53 52 PM" src="https://user-images.githubusercontent.com/72474059/125711931-f2143114-c8ad-479a-b9ab-a393241bee8a.png">  
-body_sedicam.ipt(front)  
-<img width="741" alt="Screen Shot 2021-07-14 at 8 50 51 PM" src="https://user-images.githubusercontent.com/72474059/125711938-03f72f29-e726-4c2f-9821-5c02754eb076.png">    
-body_sedicam.ipt(back)  
-<img width="745" alt="Screen Shot 2021-07-14 at 8 50 39 PM" src="https://user-images.githubusercontent.com/72474059/125711955-62b2cdde-af35-44de-bd18-64fb235adda1.png">   
+cameracover.stl   
+<img width="1212" alt="Screen Shot 2021-07-19 at 7 57 12 PM" src="https://user-images.githubusercontent.com/72474059/126242410-76523ea3-dd9a-4efa-9d5d-3c8d6c7e3796.png">
+usb_cover.stl  
+<img width="1190" alt="Screen Shot 2021-07-19 at 7 59 05 PM" src="https://user-images.githubusercontent.com/72474059/126242276-d9bd1aa2-bf63-434a-b529-84dbf85b4d2e.png">
+spacing_sedicam.stl  
+<img width="1206" alt="Screen Shot 2021-07-19 at 7 58 56 PM" src="https://user-images.githubusercontent.com/72474059/126242305-f6a70b37-24d1-4f26-9017-4af5345a7709.png">
+shutter_arm.stl  
+<img width="1192" alt="Screen Shot 2021-07-19 at 7 58 40 PM" src="https://user-images.githubusercontent.com/72474059/126242325-d693d66e-92ca-429c-9d45-33a0215ff7f1.png">
+screen_mount.stl  
+<img width="1205" alt="Screen Shot 2021-07-19 at 7 58 10 PM" src="https://user-images.githubusercontent.com/72474059/126242368-48c99377-6dd6-4168-b31b-9c5263ffc01f.png">
+sedicam_body.stl  
+<img width="1205" alt="Screen Shot 2021-07-19 at 7 58 29 PM" src="https://user-images.githubusercontent.com/72474059/126242354-eb2a3ad2-7083-4827-9a7f-fd1e3081593c.png">
+lightmount.stl  
+<img width="1211" alt="Screen Shot 2021-07-19 at 7 57 36 PM" src="https://user-images.githubusercontent.com/72474059/126242388-f52056df-5723-405d-ab89-d18610c9dd78.png">
+battery_cover.stl  
+<img width="1213" alt="Screen Shot 2021-07-19 at 7 56 58 PM" src="https://user-images.githubusercontent.com/72474059/126242427-e367ba27-eea1-4786-bd19-f4044692ce41.png">
+arm.stl  
+<img width="1209" alt="Screen Shot 2021-07-19 at 7 56 41 PM" src="https://user-images.githubusercontent.com/72474059/126242434-8eefcdc8-9611-4fd6-bd41-6c9a04ee62b5.png">
+
 
