@@ -66,8 +66,10 @@ Now that we have the RTC ready to work on boot, restart your pi and..
 
 ## set up pyDGS
 visit https://github.com/dbuscombe-usgs/pyDGS to look pyDGS or download to pi with `git clone --depth 1 https://github.com/dbuscombe-usgs/pyDGS.git`  
-once downloaded edit test.py script to look like example code in SediNetCam --> camerasoftware --> pyDGS --> examplecode.py  
+once downloaded edit test.py script to look like example code in SediNetCam --> camerasoftware --> pyDGS --> example_test.py  
 next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SediNetCam folder 
+
+--- 
 
 Helpful instructions to get packages for flash, GPS, and RTC  
 https://www.thegeekpub.com/16187/controlling-ws2812b-leds-with-a-raspberry-pi/  
@@ -77,6 +79,9 @@ https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi
 ## Usage
 When Pi computer is booted up, open terminal and change directory to location of photosieve.py  
 Enter command `python3 photosieve.py` in terminal to run photosieve, to see a preview press button and to take a picture hold the button for 2 seconds  
-Photos and a text file will be stored in a new folder name of your choosing, the text file will have every photo with the time taken, corresponding GPS coordinates, altitude, and grain size percentiles
+Photos and a text file will be stored in a new folder name of your choosing, the text file will have every photo with the time taken, corresponding GPS coordinates, altitude, grain size percentiles, d50, mean size, stddev, skewness, and kurtosis.  
+
+NOTE: ERROR under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS result use external GPS.  
+
 <img width="699" alt="Screen Shot 2021-07-02 at 12 30 42 PM" src="https://user-images.githubusercontent.com/72474059/124324666-62b82000-db51-11eb-9946-f49eceb3640a.png">
 <img width="717" alt="Screen Shot 2021-07-02 at 12 30 16 PM" src="https://user-images.githubusercontent.com/72474059/124324668-6350b680-db51-11eb-8f29-a62ef0759309.png">
