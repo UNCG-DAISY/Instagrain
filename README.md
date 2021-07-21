@@ -83,5 +83,10 @@ Photos and a text file will be stored in a new folder name of your choosing, the
 
 NOTE: ERROR under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS result use external GPS.  
 
-<img width="699" alt="Screen Shot 2021-07-02 at 12 30 42 PM" src="https://user-images.githubusercontent.com/72474059/124324666-62b82000-db51-11eb-9946-f49eceb3640a.png">
-<img width="717" alt="Screen Shot 2021-07-02 at 12 30 16 PM" src="https://user-images.githubusercontent.com/72474059/124324668-6350b680-db51-11eb-8f29-a62ef0759309.png">
+photos  
+<img width="718" alt="Screen Shot 2021-07-21 at 11 56 56 AM" src="https://user-images.githubusercontent.com/72474059/126538800-ce039c6b-e40f-4c60-90d1-a071767147ba.png"> 
+cropped photos  
+<img width="717" alt="Screen Shot 2021-07-21 at 2 11 52 PM" src="https://user-images.githubusercontent.com/72474059/126538848-ac084483-d7b8-41e1-9a25-d67f0b4ee5e7.png">  
+Example text file  
+<img width="1370" alt="Screen Shot 2021-07-21 at 2 16 31 PM" src="https://user-images.githubusercontent.com/72474059/126542683-53ad00b9-8314-4e10-8d9b-7ab32bca3c4f.png">
+
