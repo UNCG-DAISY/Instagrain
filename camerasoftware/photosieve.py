@@ -34,7 +34,7 @@ from PIL import Image
 pwd = os.getcwd()
 camera = PiCamera()
 led = LED(13)
-previewbtn = Button(26, hold_time=2) 
+previewbtn = Button(4, hold_time=2) 
 counter = 1
 
 #GPS stuff
@@ -42,7 +42,8 @@ gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 
 #make new directory and create text file within
 while True:
-	direcname = str(input("name your file: "))
+	#direcname = str(input("name your file: "))
+	direcname = str(datetime.datetime.now())
 	newpath = pwd + '/' + direcname
 	if os.path.isdir(newpath) == False:
 		break
@@ -53,7 +54,7 @@ croppath = pwd + '/' + direcname + '/crop'
 os.makedirs(newpath)
 os.makedirs(croppath)
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
-txtfile.write('img, date/time, lat, lon, alt(m), 0.05, 0.10, 0.16, 0.15, 0.30, 0.50, 0.75, 0.84, 0.90, 0.95,d50, mean size, std dev, skewness, kurtosis '"\n")
+txtfile.write('img, date/time (UTC), lat, lon, alt(m), 0.05, 0.10, 0.16, 0.15, 0.30, 0.50, 0.75, 0.84, 0.90, 0.95, d50, std dev, skewness, kurtosis '"\n")
 txtfile.close()
 textarg = str(newpath + '/' + direcname + '.csv')
 croparg = str(croppath)
@@ -109,9 +110,9 @@ try:
 			if getattr(report,'alt','nan')!= 'nan':
 				alt1 = str(getattr(report,'alt','nan'))
 		else:
-				lat1 = "ERROR"
-				lon1 = "ERROR"
-				alt1 = "ERROR" 
+				lat1 = "-9999"
+				lon1 = "-9999"
+				alt1 = "-9999" 
 				
 		#Everything else
 		led.source = previewbtn
