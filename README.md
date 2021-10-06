@@ -77,11 +77,10 @@ https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/
 https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi  
 
 ## Usage
-When Pi computer is booted up, open terminal and change directory to location of photosieve.py  
-Enter command `python3 photosieve.py` in terminal to run photosieve, to see a preview press button and to take a picture hold the button for 2 seconds  
+When Pi computer is booted up, double click on the RUN.sh script, to see a preview press button and to take a picture hold the button for 2 seconds  
 Photos and a text file will be stored in a new folder name of your choosing, the text file will have every photo with the time taken, corresponding GPS coordinates, altitude, grain size percentiles, d50, mean size, stddev, skewness, and kurtosis.  
 
-NOTE: ERROR under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS result use external GPS.  
+NOTE: -9999 under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS result use external GPS.  
 
 photos  
 <img width="718" alt="Screen Shot 2021-07-21 at 11 56 56 AM" src="https://user-images.githubusercontent.com/72474059/126538800-ce039c6b-e40f-4c60-90d1-a071767147ba.png"> 
