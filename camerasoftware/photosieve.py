@@ -33,6 +33,7 @@ from PIL import Image
 #define gpio pins and variables
 pwd = os.getcwd()
 camera = PiCamera()
+camera.resolution = (2048,2048)
 led = LED(13)
 previewbtn = Button(4, hold_time=2) 
 counter = 1
@@ -79,7 +80,7 @@ def capture():
 
 	camera.capture(newpath + '/' + str(counter) + '.jpg')
 	im = Image.open(str(newpath + '/' + str(counter) + '.jpg'))
-	crop_img = crop_center(im,512,512)
+	crop_img = crop_center(im,1024,1024)
 	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
 	txtfile = open(newpath + '/' + direcname + '.csv', 'a')
 	txtfile.write( str(counter) + ',' + str(datetime.datetime.now()) +
