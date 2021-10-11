@@ -25,8 +25,8 @@
 from dgs import *
 import os, glob
 import pandas as pd
-import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
+#import matplotlib.pyplot as plt
+#plt.style.use('fivethirtyeight')
 #========================================
 # single image
 def dotest1(image, with_plot=False):
@@ -36,10 +36,10 @@ def dotest1(image, with_plot=False):
 
    #the maximum scale (grain size) considered by the wavelet is the horizontal width dimension divided by this number
    #so if your image is 1000 pixels wide and maxscale=4, only grains up to 1000/4 = 250 pixels are considered
-   maxscale=5
+   maxscale = 5
 
    # if 1, prints grain size statistics to screen
-   verbose=1
+   verbose = 0
 
    #this is the area to volume conversion coefficient. See Cuttler et al (provided)
    #you could also use it as an empirical tuning coefficient against field data (recommended)
@@ -59,26 +59,18 @@ def dotest1(image, with_plot=False):
 
        for k in stats.keys():
            stats[k] = stats[k]*resolution
-
-   # write each to csv file
-   # newarray = np.reshape(percentiles["percentile_values"], (1,10))
-   # print(newarray)
-   # newDF = pd.DataFrame(newarray)
-   # print(newDF)
-   # newDF.to_csv(textarg, mode = 'a', header = False)
-   # statsarray = [[stats['mean grain size'], stats['grain size sorting'],stats['grain size skewness'], stats['grain size kurtosis']]]
-   # print(statsarray)
-   # newarray.extend(statsarray)
-   # statsDF = pd.DataFrame(statsarray)
-   # print(statsDF)
-   # statsDF.to_csv(textarg, mode = 'a', header = False, index = False)
    
    percarray = np.reshape(percentiles["percentile_values"], (1,10))
    statsarray = [[stats['mean grain size'], stats['grain size sorting'],stats['grain size skewness'], stats['grain size kurtosis']]]
+   mgs = stats['mean grain size']
    both = np.append(percarray, statsarray)
    newarray = np.reshape(both,(1,14))
    stats = pd.DataFrame(newarray)
    stats.to_csv(textarg, mode = 'a', header = False, index = False)
+
+   #print the stats:
+   print('mean grain size (mm):')
+   print(mgs)
    
 #====================================
 if __name__ == '__main__':

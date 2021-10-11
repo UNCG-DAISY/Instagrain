@@ -41,34 +41,58 @@ counter = 1
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
 
 #make new directory and create text file within
-while True:
-	#direcname = str(input("name your file: "))
-	direcname = str(datetime.datetime.now())
-	newpath = pwd + '/' + direcname
-	if os.path.isdir(newpath) == False:
-		break
-	else:
-		print("Directory already exist")
 
+	#direcname = str(input("name your file: "))
+direcname = str(datetime.datetime.now())
+newpath = pwd + '/' + direcname
 croppath = pwd + '/' + direcname + '/crop'
 os.makedirs(newpath)
 os.makedirs(croppath)
+
+print("Made a Directory for this session:")
+print(newpath)
+
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
 txtfile.write('img, date/time (UTC), lat, lon, alt(m), 0.05, 0.10, 0.16, 0.15, 0.30, 0.50, 0.75, 0.84, 0.90, 0.95, d50, std dev, skewness, kurtosis '"\n")
 txtfile.close()
 textarg = str(newpath + '/' + direcname + '.csv')
 croparg = str(croppath)
 
+print("Made a txt file for this session")
+
 #define functions
 def capture():
 	global counter
-	camera.capture(newpath + '/' + direcname + str(counter) + '.jpg')
+	#get GNSS data
+	report = gpsd.next() 
+	if report['class'] == 'TPV':
+		if getattr(report,'lat',0.0)!=0:
+			lat1 = str(getattr(report,'lat',0.0))
+		if getattr(report,'lon',0.0)!=0:
+			lon1 = str(getattr(report,'lon',0.0))
+		if getattr(report,'alt','nan')!= 'nan':
+			alt1 = str(getattr(report,'alt','nan'))
+	else:
+			lat1 = "-9999"
+			lon1 = "-9999"
+			alt1 = "-9999" 	
+
+	camera.capture(newpath + '/' + str(counter) + '.jpg')
+	im = Image.open(str(newpath + '/' + str(counter) + '.jpg'))
+	crop_img = crop_center(im,512,512)
+	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
 	txtfile = open(newpath + '/' + direcname + '.csv', 'a')
-	txtfile.write( direcname + str(counter) + ',' + str(datetime.datetime.now()) +
+	txtfile.write( str(counter) + ',' + str(datetime.datetime.now()) +
 	',' + lat1 + ',' + lon1 + ','+ alt1 + ',')
 	txtfile.close()
+	print(lat1)
+	print(lon1)
+	print(alt1)
 	pyDGS()
+	print('that was picture:')
+	print(counter)
 	counter = counter + 1
+	
 
 def previewon():
 	camera.start_preview()
@@ -87,38 +111,24 @@ def crop_center(pil_img, crop_width, crop_height):
                           
 def pyDGS():
 	global textarg 
-	list_of_files = glob.glob(newpath + '/*.jpg') # * means all if need specific format then *.csv
-	latest_file = str(max(list_of_files, key=os.path.getctime))
-	im = Image.open(latest_file)
-	crop_img = crop_center(im,512,512)
-	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
 	list_of_files_crop = glob.glob(croppath + '/*.jpg')
-	latest_file_crop = str(max(list_of_files, key=os.path.getctime))
-	subprocess.call(["python3", "test.py", latest_file_crop, textarg])
+	latest_file_crop = str(max(list_of_files_crop, key=os.path.getctime))
+	print("using pyDGS to get grain size")
+	subprocess.call(["python3", "example_test.py", latest_file_crop, textarg])
+	print("ready for next picture")
 	
 	
-#run function
-try:
-	while True:
-		#Setting lat,lon, and alt as variables
-		report = gpsd.next() 
-		if report['class'] == 'TPV':
-			if getattr(report,'lat',0.0)!=0:
-				lat1 = str(getattr(report,'lat',0.0))
-			if getattr(report,'lon',0.0)!=0:
-				lon1 = str(getattr(report,'lon',0.0))
-			if getattr(report,'alt','nan')!= 'nan':
-				alt1 = str(getattr(report,'alt','nan'))
-		else:
-				lat1 = "-9999"
-				lon1 = "-9999"
-				alt1 = "-9999" 
+print("ready for a picture. Press trigger to preview, hold for 2 seconds for a picture.")
+
+#While function to just run
+
+while True:
 				
-		#Everything else
-		led.source = previewbtn
-		previewbtn.when_pressed = previewon
-		previewbtn.when_held = capture
-		previewbtn.when_released = previewoff 
+	#Everything else
+	led.source = previewbtn
+	previewbtn.when_pressed = previewon
+	previewbtn.when_held = capture
+	previewbtn.when_released = previewoff 
 		
-except(KeyboardInterrupt, SystemExit):
-	print ("Done.\nExiting")
+#except(KeyboardInterrupt, SystemExit):
+#	print ("Done.\nExiting")
