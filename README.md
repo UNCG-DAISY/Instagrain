@@ -66,8 +66,8 @@ Now that we have the RTC ready to work on boot, restart your pi and..
 
 ## set up pyDGS
 visit https://github.com/dbuscombe-usgs/pyDGS to look pyDGS or download to pi with `git clone --depth 1 https://github.com/dbuscombe-usgs/pyDGS.git`  
-once downloaded edit test.py script to look like example code in SediNetCam --> camerasoftware --> pyDGS --> example_test.py  
-next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SediNetCam folder 
+once downloaded edit test.py script to look like example code in SandCam --> camerasoftware --> pyDGS --> example_test.py  
+next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SandCam folder 
 
 --- 
 
