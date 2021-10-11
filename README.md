@@ -1,4 +1,4 @@
-# SediNetCam
+# SandCam
 ---
 # Installation
 
