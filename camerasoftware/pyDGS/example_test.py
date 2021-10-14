@@ -32,18 +32,18 @@ import pandas as pd
 def dotest1(image, with_plot=False):
    # if this is 1, it means "give me the results in pixels - I'll apply my own scaling"
    # otherwise, it is mm/pixel (if you want your results in mm) or um/pixel for microns
-   resolution = .02073052
+   resolution = .032
 
    #the maximum scale (grain size) considered by the wavelet is the horizontal width dimension divided by this number
    #so if your image is 1000 pixels wide and maxscale=4, only grains up to 1000/4 = 250 pixels are considered
-   maxscale = 5
+   maxscale = 4
 
    # if 1, prints grain size statistics to screen
    verbose = 0
 
    #this is the area to volume conversion coefficient. See Cuttler et al (provided)
    #you could also use it as an empirical tuning coefficient against field data (recommended)
-   x = -.47
+   x = -0.7
 
    #I recommend you compute in pixels (resolution=1) then apply your resolution scaling afterwards
    data_out = dgs(image, 1, maxscale, verbose, x)
