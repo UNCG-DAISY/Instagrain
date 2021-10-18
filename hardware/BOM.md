@@ -11,7 +11,7 @@ RTC battery - https://www.amazon.com/Energizer-CR1220-Drain-lithuim-Battery/dp/B
 
 Touch display - https://www.amazon.com/Raspberry-Pi-7-Touchscreen-Display/dp/B0153R2A9I/
 
-GPS - https://ozzmaker.com/product/berrygps-imu/
+GPS - https://www.amazon.com/BerryGPS-IMUv3-Raspberry-Accelerometer-Magnetometer-Barometric/dp/B072MNBC9M
 
 Header pin expansion board - https://www.amazon.com/GeeekPi-Connectors-Raspberry-Expansion-Compatible/dp/B0888W3XN4/
 
