@@ -1,6 +1,6 @@
 # This is the folder for all aspects of camera hardware
 
-- The bill of materials (`BOM.txt`)
+- The bill of materials (`BOM.md`)
 - A wirig diagram is available in Fritzing format('SediNetCamv2.fzz')
 - STL parts File, and Inventor .iam file
 ---
