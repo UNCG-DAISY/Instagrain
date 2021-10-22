@@ -1,8 +1,11 @@
 # SandCam
 
-A 3D printed camera to measure grain size on the beach.
+A 3D printed camera to measure sediment grain size from pictures.
+
+<img src="/SNC.jpg" width=50% height=50%>
 
 ---
+
 # Installation
 
 ## Update Pi 
@@ -91,4 +94,3 @@ cropped photos
 <img width="717" alt="Screen Shot 2021-07-21 at 2 11 52 PM" src="https://user-images.githubusercontent.com/72474059/126538848-ac084483-d7b8-41e1-9a25-d67f0b4ee5e7.png">  
 Example text file  
 <img width="1370" alt="Screen Shot 2021-07-21 at 2 16 31 PM" src="https://user-images.githubusercontent.com/72474059/126542683-53ad00b9-8314-4e10-8d9b-7ab32bca3c4f.png">
-
