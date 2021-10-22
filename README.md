@@ -1,4 +1,7 @@
 # SandCam
+
+A 3D printed camera to measure grain size on the beach.
+
 ---
 # Installation
 
