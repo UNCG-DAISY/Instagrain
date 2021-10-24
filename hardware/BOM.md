@@ -2,6 +2,8 @@
 
 RPi Model 4 - (many places)
 
+Powerbank — (our discussion here: https://github.com/UNCG-DAISY/SandCam/issues/43)
+
 HQ picam lens - https://www.adafruit.com/product/4563
 
 HQ picam - https://www.adafruit.com/product/4561
