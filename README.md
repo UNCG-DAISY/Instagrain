@@ -18,7 +18,7 @@ We are actively working on a new machine learning method (that will run on the c
 
 1. Read through the repository.
 
-2. Follow the instructions in the [hardware readme](./hardware/readme.md) to 3D print the case, wire the electronic compoenents, and build the camera.
+2. Follow the instructions in the [hardware readme](./hardware/readme.md) to 3D print the case, wire the electronic components, and build the camera.
 
 3. Follow the instructions in the [software readme](./software/readme.md) to load the Raspberry Pi with the neccesary programs.
 

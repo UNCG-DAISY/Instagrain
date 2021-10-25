@@ -11,11 +11,11 @@ This directory addresses two aspects of the camera:
 
 There are 5 `.stl` files 
 
-1. [Camera body](./body*)
-2. [Light mount](./light*)
-3. [Battery case](./battery*)
-4. [Screen Mount](./screen*)
-5. [USB Door](./usbdoor*)
+1. [Camera body](./body_sedicamsmallerv2.stl)
+2. [Light mount](./lightmount.stl)
+3. [Battery case](./battery_case.stl)
+4. [Screen Mount](./screen_mount.stl)
+5. [USB Door](./usbdoor_sedicam.stl)
 
 We recommend printing all of them with a SLA printer with a build volumne of XXX and using rigid resin.
 
