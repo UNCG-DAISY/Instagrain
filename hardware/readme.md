@@ -28,7 +28,7 @@ Instructions for assembly are forthcoming.
 
 To assemble the camera, you will need the parts described in the bill of materials — [`BOM.md`](./BOM.md). 
 
-A wiring diagram is available in Fritzing format — [`SediNetCamv2.fzz`](./BOM.md). 
+A wiring diagram is available in Fritzing format — [`SediNetCamv2.fzz`](./SediNetCamv2.fzz). 
 
 Instructions for assembly are forthcoming.
 
