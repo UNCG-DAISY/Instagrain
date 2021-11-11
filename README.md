@@ -8,7 +8,7 @@ A 3D printed camera to measure sediment grain size in the field from pictures.
 
 Currently we have a working version of the camera and are refining the camera design, hardware, and software. Check out the issues if you want to follow along or contribute. 
 
-The camera currently runs a [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution of an image using the continuous wavelet transform.
+The camera currently runs a [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution (percent finer) of an image using the continuous wavelet transform.
 
 We are actively working on a new machine learning method to estimate grain size (that will run on the camera using tensorflow lite) — see the [ML readme](/ml/readme.md). 
 
