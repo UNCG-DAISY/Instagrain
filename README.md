@@ -10,7 +10,7 @@ Currently we have a working version of the camera and are refining the camera de
 
 The camera currently runs a deep learning model to estimate grain size from pictures (using tensorflow lite) — see the [ML readme](/ml/readme.md). 
 
-(The camera also can run [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution (percent finer) of an image using the continuous wavelet transform.
+(The camera can also run [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution (percent finer) of an image using the continuous wavelet transform.
 
 
 ## To Build the Camera:
@@ -27,4 +27,4 @@ The camera currently runs a deep learning model to estimate grain size from pict
 
 ## Code of Conduct
 
-We intend to foster an inclusive and respectful environment surrounding the contribution and discussion of our project. Make sure you understand our [Code of Conduct](./codeofconduct.md).
+We intend to foster an inclusive and respectful environment surrounding the contribution and discussion of our project. Make sure you understand our [Code of Conduct](./CODE_OF_CONDUCT.md).
