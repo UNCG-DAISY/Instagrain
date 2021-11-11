@@ -65,7 +65,15 @@ Now that we have the RTC ready to work on boot, restart your pi and..
 `sudo i2cdetect -y 1` a mounted drive will have a "UU" ID  
 <img width="499" alt="Screen Shot 2021-07-02 at 12 09 07 PM" src="https://user-images.githubusercontent.com/72474059/124324672-63e94d00-db51-11eb-9099-01946bae5407.png">
 
-## set up pyDGS
+## set up Tensorflow Lite
+
+Follow instructions to `pip install` the tflite runtime on the Raspberry Pi
+https://www.tensorflow.org/lite/guide/python
+
+create a `/models/` directory on the desktop and place the `*.tflite` file (the tflite model) in that directory.
+
+
+## set up pyDGS (optional)
 visit https://github.com/dbuscombe-usgs/pyDGS to look pyDGS or download to pi with `git clone --depth 1 https://github.com/dbuscombe-usgs/pyDGS.git`  
 once downloaded edit test.py script to look like example code in SandCam --> camerasoftware --> pyDGS --> example_test.py  
 next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SandCam folder 
