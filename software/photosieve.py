@@ -11,7 +11,9 @@ import glob
 import datetime
 from gps import *
 import subprocess
-from PIL import Image 
+from PIL import Image
+import numpy as np
+from tflite_runtime.interpreter import Interpreter
 
 #define gpio pins and variables
 pwd = os.getcwd()
@@ -23,6 +25,14 @@ counter = 1
 
 #GPS stuff
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
+
+#TFLITE stuff
+path_to_model = "./models/SandCam_quant_16.tflite"
+interpreter = Interpreter(path_to_model)
+interpreter.allocate_tensors()
+#uncomment lines below to debug and look at expected I/O
+#print(interpreter.get_input_details())
+#print(interpreter.get_output_details())
 
 #make new directory and create text file within
 
@@ -72,7 +82,11 @@ def capture():
 	print(lat1)
 	print(lon1)
 	print(alt1)
+	#prediction step
+	#with pyDGS
 	pyDGS()
+	#with TFLite:
+	TFlitePred(crop_img)
 	print('that was picture:')
 	print(counter)
 	counter = counter + 1
@@ -100,7 +114,20 @@ def pyDGS():
 	print("using pyDGS to get grain size")
 	subprocess.call(["python3", "example_test.py", latest_file_crop, textarg])
 	print("ready for next picture")
-	
+
+def TFlitePred(crop_img):
+	#get image in the correct shape,size, format
+	converted_crop = np.array(crop_img, dtype=np.float32)
+	r_crop_img = converted_crop/255
+	crop_img_exp = np.expand_dims(r_crop_img, axis=0)
+	input_index = interpreter.get_input_details()[0]["index"]
+	output_index = interpreter.get_output_details()[0]["index"]
+	interpreter.set_tensor(input_index, crop_img_exp)
+	interpreter.invoke()
+	predictions = interpreter.get_tensor(output_index)
+	print(predictions)
+	return predictions
+
 	
 print("ready for a picture. Press trigger to preview, hold for 2 seconds for a picture.")
 

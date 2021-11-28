@@ -2,6 +2,4 @@ ML/data/*
 ML/src/.ipy*
 ML/src/models/*
 ML/src/dev/*
-ML/src/wandb/
-ML/src/__pycache__/
-ML/src/log/
+ML/src/TFL*
