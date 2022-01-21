@@ -2,7 +2,9 @@
 
 A 3D printed camera to measure sediment grain size in the field from pictures.
 
-<img src="./SNC.jpg" width=50% height=50%>
+
+<img src="./SNC.jpg" width=50% height=50%/>
+
 
 ---
 
@@ -28,3 +30,5 @@ The camera currently runs a deep learning model to estimate grain size from pict
 ## Code of Conduct
 
 We intend to foster an inclusive and respectful environment surrounding the contribution and discussion of our project. Make sure you understand our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+<img src="./crop2.jpg" width=50% height=50% />
