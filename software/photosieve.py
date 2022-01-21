@@ -27,7 +27,7 @@ counter = 1
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
 
 #TFLITE stuff
-path_to_model = "./models/SandCam_quant_16.tflite"
+path_to_model = "./models/SandCam_QAT_notdense.tflite"
 interpreter = Interpreter(path_to_model)
 interpreter.allocate_tensors()
 #uncomment lines below to debug and look at expected I/O
