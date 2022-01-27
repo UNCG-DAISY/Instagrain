@@ -34,7 +34,10 @@ Power Raspberry pi on
 interfacing options (3) -> Serial Port (P6) -> No -> Yes -> Finish   
 then reboot   
 
-config GPS to work with correct serial device  Wrong
+Install, gpsd, gpsmon and cgps  
+`sudo apt-get install gpsd-clients gpsd -y`
+
+config GPS to work with correct serial device  
 `sudo nano /etc/default/gpsd`  
 Look for  `DEVICES=""`  
 Change to `DEVICES="/dev/serial0"`  
