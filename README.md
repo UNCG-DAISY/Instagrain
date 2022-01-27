@@ -1,5 +1,15 @@
 # SandCam
 
+[![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/SandCam)](
+https://github.com/UNCG-DAISY/SandCam/commits/main)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/UNCG-DAISY/SandCam/graphs/commit-activity)
+![GitHub](https://img.shields.io/github/license/UNCG-DAISY/SandCam)
+
+![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+
+
 A 3D printed camera to measure sediment grain size in the field from pictures.
 
 
