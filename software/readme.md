@@ -47,7 +47,7 @@ Now save file (control X, Y)
 
 ## set up RTC
 
-`sudo raspi-config` Interface options -> P5 I2C -> yes -> finish  
+`sudo raspi-config` Interface options (3) -> (P5) I2C -> yes -> finish  
 <img width="502" alt="Screen Shot 2021-07-02 at 12 03 23 PM" src="https://user-images.githubusercontent.com/72474059/124324683-651a7a00-db51-11eb-9ab6-369bd1b30153.png">
 <img width="502" alt="Screen Shot 2021-07-02 at 12 03 43 PM" src="https://user-images.githubusercontent.com/72474059/124324681-651a7a00-db51-11eb-83ec-318309767175.png">
 <img width="502" alt="Screen Shot 2021-07-02 at 12 04 38 PM" src="https://user-images.githubusercontent.com/72474059/124324680-6481e380-db51-11eb-9981-be4f91f25073.png">
