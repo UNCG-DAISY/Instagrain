@@ -54,7 +54,7 @@ Now save file (control X, Y)
 <img width="501" alt="Screen Shot 2021-07-02 at 12 04 50 PM" src="https://user-images.githubusercontent.com/72474059/124324679-6481e380-db51-11eb-8cdc-9e692816c19a.png">
 <img width="501" alt="Screen Shot 2021-07-02 at 12 05 08 PM" src="https://user-images.githubusercontent.com/72474059/124324677-6481e380-db51-11eb-91b4-3a1fd8bbbb47.png">  
 `sudo reboot`  
-Now install this package to see if the raspberry pi recognizes the RTC  
+Now use i2cdetect to see if the RTC is working  
 `sudo apt-get install python-smbus i2c-tools`   
 `sudo i2cdetect -y 1` will show mounted drives, you should see a 68  
 <img width="502" alt="Screen Shot 2021-07-02 at 12 06 21 PM" src="https://user-images.githubusercontent.com/72474059/124324676-63e94d00-db51-11eb-8588-0b36c7acb4bb.png">  
