@@ -73,10 +73,18 @@ First disable the fake "hwclock"
 `sudo systemctl disable fake-hwclock`     
 
 Second make the RTC to the main clock   
-Run `$sudo nano /lib/udev/hwclock-set` and comment out the following lines with `#`   
+Run `sudo nano /lib/udev/hwclock-set` and comment out the following lines with `#`   
 `if [-e/run/systemd/system];then`   
 `exit 0`    
-`if`     
+`fi`     
+<img width="497" alt="Screen Shot 2022-02-01 at 1 30 48 PM" src="https://user-images.githubusercontent.com/72474059/152029207-bcb3e759-0c84-4c40-9294-703016023e37.png">   
+`/sbin/hwclock --rtc=$dev --systz --badyear`   
+
+`/sbin/hwclock --rtc=$dev --systz`   
+<img width="498" alt="Screen Shot 2022-02-01 at 1 31 12 PM" src="https://user-images.githubusercontent.com/72474059/152029235-122ef9c5-87ff-4331-acd7-c8182d23dccd.png">    
+
+Make sure there is an internet connection so that the clocks can sync
+
 ## set up Tensorflow Lite
 
 Follow instructions to `pip install` the tflite runtime on the Raspberry Pi
