@@ -15,7 +15,7 @@ sudo reboot
 
 ## Configure Pi
 
-Applications menu -> Preferences -> Raspberry Pi Configuration -> Interfaces -> ENABLE; Camera, SPI, I2C (SSH, VNC are optional)  
+Applications menu -> Preferences -> Raspberry Pi Configuration -> Interfaces -> ENABLE; Camera, SPI,(SSH, VNC are optional)  
 `sudo reboot` 
 
 ## Add Hardware
