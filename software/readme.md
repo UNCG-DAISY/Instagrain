@@ -92,6 +92,31 @@ https://www.tensorflow.org/lite/guide/python
 
 create a `/models/` directory on the desktop and place the `*.tflite` file (the tflite model) in that directory.
 
+## set up Google Coral TPU   
+Run the commands   
+`echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list`   
+`curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`   
+`sudo apt-get update`   
+
+Next Install Edge TPU Runtime
+`sudo apt-get install libedgetpu1-std`   
+
+Now Install the Pycoral Library   
+`sudo apt-get install python3-pycoral`   
+
+The Google Coral is ready to be plugged in now  
+To test use the code below   
+`mkdir coral && cd coral`   
+`git clone https://github.com/google-coral/pycoral.git`   
+`cd pycoral`   
+
+`bash examples/install_requirements.sh classify_image.py`   
+
+`python3 examples/classify_image.py \
+--model test_data/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite \
+--labels test_data/inat_bird_labels.txt \
+--input test_data/parrot.jpg`   
+
 
 ## set up pyDGS (optional)
 visit https://github.com/dbuscombe-usgs/pyDGS to look pyDGS or download to pi with `git clone --depth 1 https://github.com/dbuscombe-usgs/pyDGS.git`  
@@ -100,9 +125,10 @@ next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SandCam folder
 
 --- 
 
-Helpful instructions to get packages for flash, GPS, and RTC  
+Helpful instructions to get packages for Ring LED, GPS, Coral TPU, and RTC  
 https://www.thegeekpub.com/16187/controlling-ws2812b-leds-with-a-raspberry-pi/  
 https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/  
+https://coral.ai/docs/accelerator/get-started#1-install-the-edge-tpu-runtime   
 https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi  
 
 ## Usage
