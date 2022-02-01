@@ -65,8 +65,18 @@ save and exit (control x, y, enter)
 <img width="501" alt="Screen Shot 2021-07-02 at 12 07 14 PM" src="https://user-images.githubusercontent.com/72474059/124324675-63e94d00-db51-11eb-94cc-bf6d3439c419.png">  
 Now that we have the RTC ready to work on boot, restart your pi and..
 `sudo i2cdetect -y 1` a mounted drive will have a "UU" ID  
-<img width="499" alt="Screen Shot 2021-07-02 at 12 09 07 PM" src="https://user-images.githubusercontent.com/72474059/124324672-63e94d00-db51-11eb-9099-01946bae5407.png">
+<img width="499" alt="Screen Shot 2021-07-02 at 12 09 07 PM" src="https://user-images.githubusercontent.com/72474059/124324672-63e94d00-db51-11eb-9099-01946bae5407.png">   
+Setting up RTC to be the main clock  
+First disable the fake "hwclock"   
+`sudo apt-get -y remove fake-hwclock   
+sudo update-rc.d -f fake-hwclock remove   
+sudo systemctl disable fake-hwclock`   
 
+Second make the RTC to the main clock   
+Run `$sudo nano /lib/udev/hwclock-set` and enter the following lines.   
+`#if [-e/run/systemd/system];then
+#   exit 0   
+#if`   
 ## set up Tensorflow Lite
 
 Follow instructions to `pip install` the tflite runtime on the Raspberry Pi
