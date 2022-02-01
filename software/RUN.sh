@@ -2,4 +2,4 @@
 
 cd /home/pi/Desktop
 
-python3 photosieve.py
+python3 photosieveTPU.py
