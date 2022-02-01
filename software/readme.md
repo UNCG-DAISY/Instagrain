@@ -59,7 +59,8 @@ Now use i2cdetect to see if the RTC is working
 <img width="502" alt="Screen Shot 2021-07-02 at 12 06 21 PM" src="https://user-images.githubusercontent.com/72474059/124324676-63e94d00-db51-11eb-8588-0b36c7acb4bb.png">  
 `sudo nano /boot/config.txt`        
 Add to the end    
-`rtc dtoverlay=i2c-rtc,ds3231`  
+`#rtc`   
+`dtoverlay=i2c-rtc,ds3231`     
 save and exit (control x, y, enter)   
 <img width="501" alt="Screen Shot 2021-07-02 at 12 07 14 PM" src="https://user-images.githubusercontent.com/72474059/124324675-63e94d00-db51-11eb-94cc-bf6d3439c419.png">  
 Now that we have the RTC ready to work on boot, restart your pi and..
