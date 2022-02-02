@@ -28,6 +28,9 @@ Connect Button to GPIO26 and to GND
 Connect LED light to GPIO18, 5v (back of RTC), and GND  
 Power Raspberry pi on   
 
+## Downlaod the Pandas Package   
+`pip3 install pandas`   
+
 ## set up GPS
 
 `sudo raspi-config`    
