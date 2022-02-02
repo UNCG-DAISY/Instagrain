@@ -51,7 +51,7 @@ print("Made a Directory for this session:")
 print(newpath)
 
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
-txtfile.write('img, date/time (UTC), lat, lon, alt(m), 0.05, 0.10, 0.16, 0.15, 0.30, 0.50, 0.75, 0.84, 0.90, 0.95, d50, std dev, skewness, kurtosis '"\n")
+txtfile.write('img, date/time (UTC), lat, lon, alt(m), 0.02, 0.05, 0.10, 0.16, 0.25, 0.50, 0.75, 0.84, 0.90, 0.95, 0.98 '"\n")
 txtfile.close()
 textarg = str(newpath + '/' + direcname + '.csv')
 croparg = str(croppath)
@@ -131,6 +131,8 @@ def TFlitePred(crop_img):
     predictions = common.output_tensor(interpreter, 0)
     
     print(predictions)
+    stats = pd.DataFrame(predictions)
+    stats.to_csv(textarg, mode='a', header = False, index = False)
     return predictions
 
 	
