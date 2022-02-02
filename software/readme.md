@@ -85,6 +85,9 @@ Run `sudo nano /lib/udev/hwclock-set` and comment out the following lines with `
 
 Make sure there is an internet connection so that the clocks can sync
 
+## set up Neopixel Lite   
+`sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel`   
+
 ## set up Tensorflow Lite
 
 Follow instructions to `pip install` the tflite runtime on the Raspberry Pi
