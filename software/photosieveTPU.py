@@ -13,6 +13,7 @@ from gps import *
 import subprocess
 from PIL import Image
 import numpy as np
+import pandas as pd
 from pycoral.utils import edgetpu
 from pycoral.utils import dataset
 from pycoral.adapters import common
@@ -132,7 +133,8 @@ def TFlitePred(crop_img):
     
     print(predictions)
     stats = pd.DataFrame(predictions)
-    stats.to_csv(textarg, mode='a', header = False, index = False)
+    statsrounded = stats.round(decimals=3)
+    statsrounded.to_csv(textarg, mode='a', header = False, index = False)
     return predictions
 
 	
