@@ -32,6 +32,7 @@ A wiring diagram is available in Fritzing format — [`SediNetCamv2.fzz`](./Sedi
 
 Instructions for assembly are forthcoming.
 
-![Screenshot 2021-07-21 140454](https://user-images.githubusercontent.com/72474059/126538270-88ae52f5-da57-48d6-ad52-6b6367878acd.png)  
+![image](https://user-images.githubusercontent.com/72474059/153038534-2d0ee222-6dbd-4ef7-ad33-b2dfd842e944.png)
+
 ---
 
