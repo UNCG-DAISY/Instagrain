@@ -1,5 +1,5 @@
 ML/data/*
 ML/src/.ipy*
-ML/src/models/older/
+ML/src/models/
 ML/src/TFL_models/older/
 ML/src/dev
