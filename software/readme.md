@@ -2,14 +2,13 @@
 
 After assembling the case and wiring the electronics for the RPi (see the ['hardware directory'](../hardware)), it's time to get the Software and configurations set. 
 
-## Option One
+## Option 1
 Flash sd card with image from https://cshl.synology.me:5001/d/f/670216654824718296   
 
-## Option Two
+## Option 2
 ## Update Pi 
 
-Boot up Raspberry Pi and connect to internet  
-Update raspberry Pi with commands
+Boot up Raspberry Pi and connect to internet, and update Raspberry Pi with commands
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -31,7 +30,7 @@ Connect Button to GPIO26 and to GND
 Connect LED light to GPIO18, 5v (back of RTC), and GND  
 Power Raspberry pi on   
 
-## Downlaod the Pandas Package   
+## Download the Pandas Package   
 `pip3 install pandas`   
 
 ## set up GPS
@@ -130,7 +129,7 @@ To test use the code below
 ## set up pyDGS (optional)
 visit https://github.com/dbuscombe-usgs/pyDGS to look pyDGS or download to pi with `git clone --depth 1 https://github.com/dbuscombe-usgs/pyDGS.git`  
 once downloaded edit test.py script to look like example code in SandCam --> camerasoftware --> pyDGS --> example_test.py  
-next copy the __pycahce__ folder, dgs.pyc, and dgs.py to your SandCam folder 
+next copy the __pycache__ folder, dgs.pyc, and dgs.py to your SandCam folder 
 
 --- 
 
