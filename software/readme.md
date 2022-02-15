@@ -2,7 +2,10 @@
 
 After assembling the case and wiring the electronics for the RPi (see the ['hardware directory'](../hardware)), it's time to get the Software and configurations set. 
 
+## Option One
+Flash sd card with image from https://cshl.synology.me:5001/d/f/670216654824718296   
 
+## Option Two
 ## Update Pi 
 
 Boot up Raspberry Pi and connect to internet  
