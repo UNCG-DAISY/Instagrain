@@ -47,7 +47,7 @@ config GPS to work with correct serial device
 Look for  `DEVICES=""`  
 Change to `DEVICES="/dev/serial0"`  
 Now save file (control X, Y) 
-`sudo pip3 install gps` to download gps for python3
+`pip3 install gpsd-py3` to download gps for python3
 <img width="500" alt="Screen Shot 2021-07-02 at 12 17 02 PM" src="https://user-images.githubusercontent.com/72474059/124324670-6350b680-db51-11eb-8d51-c88c321e43b6.png">
 
 ## set up RTC
