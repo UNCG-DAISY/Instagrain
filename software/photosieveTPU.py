@@ -6,10 +6,11 @@
 #import packages
 from gpiozero import Button, LED
 from picamera import PiCamera
+import gpsd
 import os
 import glob
 import datetime
-from gps import *
+#from gps import * #Not needed now that we use gpsd
 import subprocess
 from PIL import Image
 import numpy as np
@@ -27,8 +28,12 @@ led = LED(13)
 previewbtn = Button(4, hold_time=2) 
 counter = 1
 
-#GPS stuff
-gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
+#Old GPS stuff
+#gpsd1 = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE) 
+
+#New GPS trial
+gpsd.connect()
+
 
 #TFLITE stuff
 path_to_model = "./models/SandCam_QAT_notdense_edgetpu.tflite"
@@ -52,7 +57,7 @@ print("Made a Directory for this session:")
 print(newpath)
 
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
-txtfile.write('img, date/time (UTC), lat, lon, alt(m), 0.02, 0.05, 0.10, 0.16, 0.25, 0.50, 0.75, 0.84, 0.90, 0.95, 0.98 '"\n")
+txtfile.write('Filename, Date/Time (UTC), Latitude (DD) , Longitude (DD), Altitude(m), D_2(mm), D_5(mm), D_10(mm), D_16(mm), D_25(mm), D_50(mm), D_75(mm), D_84(mm), D_90(mm), D_95(mm), D_98(mm) '"\n")
 txtfile.close()
 textarg = str(newpath + '/' + direcname + '.csv')
 croparg = str(croppath)
@@ -63,18 +68,25 @@ print("Made a txt file for this session")
 def capture():
 	global counter
 	#get GNSS data
-	report = gpsd.next()
+	report = gpsd.get_current()
+	#report = gpsd1.next() #Old GPS packet
 	lat1 = "-9999"
 	lon1 = "-9999"
 	alt1 = "-9999"
-	if report['class'] == 'TPV':
-		if getattr(report,'lat',0.0)!=0:
-			lat1 = str(getattr(report,'lat',0.0))
-		if getattr(report,'lon',0.0)!=0:
-			lon1 = str(getattr(report,'lon',0.0))
-		if getattr(report,'alt','nan')!= 'nan':
-			alt1 = str(getattr(report,'alt','nan'))
-
+	print(report)
+	#if report['class'] == 'TPV':
+		# if getattr(report,'lat',0.0)!=0:
+			# lat1 = str(getattr(report,'lat',0.0))
+		# if getattr(report,'lon',0.0)!=0:
+			# lon1 = str(getattr(report,'lon',0.0))
+		# if getattr(report,'alt','nan')!= 'nan':
+			# alt1 = str(getattr(report,'alt','nan'))
+	if getattr(report,'lat',0.0)!=0:
+		lat1 = str(getattr(report,'lat',0.0))
+	if getattr(report,'lon',0.0)!=0:
+		lon1 = str(getattr(report,'lon',0.0))
+	if getattr(report,'alt','nan')!= 'nan':
+		alt1 = str(getattr(report,'alt','nan'))
 
 	camera.capture(newpath + '/' + str(counter) + '.jpg')
 	im = Image.open(str(newpath + '/' + str(counter) + '.jpg'))
@@ -89,7 +101,7 @@ def capture():
 	print(alt1)
 	#prediction step
 	#with pyDGS
-	pyDGS()
+	#pyDGS()
 	#with TFLite:
 	TFlitePred(crop_img)
 	print('that was picture:')
