@@ -47,7 +47,8 @@ interpreter.allocate_tensors()
 #make new directory and create text file within
 
 #direcname = str(input("name your file: "))
-direcname = str(datetime.datetime.now())
+time = datetime.datetime.now()
+direcname = time.strftime("%m_%d_%Y_%H_%M_%S")
 newpath = pwd + '/' + direcname
 croppath = pwd + '/' + direcname + '/crop'
 os.makedirs(newpath)
