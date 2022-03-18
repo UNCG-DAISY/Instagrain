@@ -7,7 +7,11 @@ Full List of Materials can be found on the BOMv2.csv
 
 - Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790)   
 - The recommended SD card can be bought on Amazon https://www.amazon.com/SanDisk-Extreme-microSDHC-UHS-3-SDSQXAF-032G-GN6MA/dp/B06XWMQ81P/ref=sr_1_6?crid=3RCLWANKZ9E0G&keywords=32gb%2Bmicro%2Bsd%2Bcard&qid=1647475229&sprefix=32gb%2Bmicro%2Caps%2C86&sr=8-6&th=1  
-- All .stp files can be sent to polycase for the custome cnc machined poly case
+- There are two .stp files that can be sent to polycase to order the custom cnc camera housing (expect 1 to 3 week lead time)
+  - WQ-57C_LID.stp
+  - WQ-57_Body.stp
+  - Instructions for sending the parts are available at https://www.polycase.com/customized-enclosures 
+
 
 ---
 ### Hardware
@@ -21,6 +25,10 @@ There are 3 `.stl` files
 - Camcover.stl
 - screenbracket.stl
 - Mountingplate.stl (coming soon)
+
+We recommend printing all of them with a SLA printer with a build volumne of XXX and using rigid resin.
+
+Printing takes roughly XXX with a XXX printer
 
 ---
 # Wiring Diagram
