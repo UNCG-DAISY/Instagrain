@@ -9,16 +9,17 @@ Full List of Materials can be found on the BOMv2.csv
   - The Google Coral can be found at https://coral.ai/products/accelerator  
   - The recommended microSD card can be bought on Amazon https://www.amazon.com/SanDisk-Extreme-microSDHC-UHS-3-SDSQXAF-032G-GN6MA/dp/B06XWMQ81P/ref=sr_1_6?crid=3RCLWANKZ9E0G&keywords=32gb%2Bmicro%2Bsd%2Bcard&qid=1647475229&sprefix=32gb%2Bmicro%2Caps%2C86&sr=8-6&th=1  
   - Due to chip shortages in 2021 and 2022, the Raspberry Pi 4 may not be available on Adafruit
-- There are two .stp files that can be sent to polycase to order the custom cnc camera housing (expect 1 to 3 week lead time)
+- There are two STEP files that can be sent to Polycase* to order the custom-designed, CNC-machined camera housing (expect 1 to 3 week lead time). Polycase should alread have the "setup" complete, which reduces the overall unit cost. 
   - WQ-57C_LID.stp
   - WQ-57_Body.stp
-  - Instructions for sending the parts are available at https://www.polycase.com/customized-enclosures 
+
+*Instructions for sending requests for custom CNC-machined parts are available at https://www.polycase.com/customized-enclosures 
 
 
 ---
 ### Hardware
 
-The hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=6706876626400   
+The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=6706876626400   
 
 ---
 ### 3D Parts
