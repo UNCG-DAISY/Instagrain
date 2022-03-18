@@ -23,12 +23,13 @@ The hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/o
 ---
 ### 3D Parts
 
-There are 3 `.stl` files
+There are 4 `.stl` files
 - Camcover.stl
 - screenbracket.stl
+- lightmount.stl
 - Mountingplate.stl (coming soon)
 
-We recommend printing all of them with a SLA printer with a build volumne of XXX and using rigid resin.
+We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
 Printing takes roughly XXX with a XXX printer
 
