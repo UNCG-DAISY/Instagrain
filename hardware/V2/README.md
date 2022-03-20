@@ -1,6 +1,6 @@
 # BOM v2
 
-Full List of Materials can be found on the [`BOMv2.md`](./BOMv2.md)
+Full List of Materials can be found on the [`BOMv2.csv`](./BOMv2.csv)
 
 ---
 ### Major Components
@@ -32,7 +32,7 @@ There are 4 `.stl` files
 
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
-Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.md`](./BOMv2.md) for full part breakdown)
+Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](./BOMv2.csv) for full part breakdown)
 
 ---
 # Wiring Diagram
