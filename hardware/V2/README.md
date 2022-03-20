@@ -1,6 +1,6 @@
 # BOM v2
 
-Full List of Materials can be found on the BOMv2.csv
+Full List of Materials can be found on the [`BOMv2.md`](./BOMv2.md)
 
 ---
 ### Major Components
@@ -25,14 +25,14 @@ The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmas
 ### 3D Parts
 
 There are 4 `.stl` files
-- Camcover.stl
-- screenbracket.stl
-- lightmount.stl
+- [`Camcover.stl`](./Camcover.stl)
+- [`screenbracket.stl`](./`screenbracket.stl`)
+- [`lightmount.stl`](./lightmount.stl)
 - Mountingplate.stl (coming soon)
 
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
-Printing takes roughly XXX with a XXX printer
+Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.md`](./BOMv2.md) for full part breakdown)
 
 ---
 # Wiring Diagram
