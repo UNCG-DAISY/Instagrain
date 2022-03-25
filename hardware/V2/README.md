@@ -26,8 +26,8 @@ The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmas
 
 There are 4 `.stl` files
 - [`Camcover.stl`](./Camcover.stl)
-- [`screenbracket.stl`](./`screenbracket.stl`)
-- [`lightmount.stl`](./lightmount.stl)
+- [`screenbracket.stl`](./screenbracket.stl)
+- [`ledmountv2.stl`](./ledmountv2.stl)
 - Mountingplate.stl (coming soon)
 
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
