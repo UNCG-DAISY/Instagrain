@@ -10,17 +10,42 @@ import tkinter as tk
 
 #Latest Grain stats
 #predictions = common.output_tensor(interpreter, 0)
-predictions = ["D_2(mm)", "D_5(mm)", "D_10(mm)", "D_16(mm)", "D_25(mm)", "D_50(mm)", "D_75(mm)", "D_84(mm)", "D_90(mm)", "D_95(mm)", "D_98(mm)"]  
+grain_sizes = ["D_2(mm)", "D_5(mm)", "D_10(mm)", "D_16(mm)", "D_25(mm)", "D_50(mm)", "D_75(mm)", "D_84(mm)", "D_90(mm)", "D_95(mm)", "D_98(mm)"]  
 print(predictions)
 
 def stats_update():
-	stat_counter = 1
-	for i in predictions:
-		stats.insert(stat_counter, i)
-		stat_counter += 1
-		print(stat_counter)
+	for i in range(1,len(grain_sizes)):
+		stats.insert(i, str(grain_sizes[i]) + ": " + str(predictions[i]))
 	stats.update()
-	
+
+#Update gui function
+def update():
+	stats_update()
+	coord_update()
+
+#Capture + update gui
+def capturegui():
+	capture()
+	sleep(2)
+	update()
+
+#preview on/off
+def preview():
+	previewon()
+	sleep(5)
+	previewoff()
+
+def coord_update():
+	lattk = Label(master, text = "Lattitude (DD): " + str(lat1), borderwidth=1, relief="solid")
+	lattk.place(relheight=0.058, relwidth=0.176, relx=0.02, rely=0.804)
+	lattk.update()
+	lontk = Label(master, text = "Longitude (DD): " + str(lon1), borderwidth=1, relief="solid")
+	lontk.place(relheight=0.058, relwidth=0.176, relx=0.02, rely=0.862)
+	lontk.update()
+	elevtk = Label(master, text = "Altitude (m): " + str(alt1), borderwidth=1, relief="solid")
+	elevtk.place(relheight=0.058, relwidth=0.176, relx=0.02, rely=0.920)
+	elevtk.update()
+
 ### BELOW IS TKINTER CODE ###
 
 #create main window
@@ -39,12 +64,11 @@ master.geometry(str(screen_width)+'x'+str(screen_height))
 master.title('SandCam')
 
 #make buttons
-previewbutton = tk.Button(master, text="Preview", font = ("Times New Roman", 25), command=stats_update)
-previewbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.216) #WORKING
+previewbutton = tk.Button(master, text="Preview", font = ("Times New Roman", 25))#, command=preview()) #uncomment
+previewbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.216) 
 
-shutterbutton = tk.Button(master, text="Capture", font = ("Times New Roman", 25))
-shutterbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.412) #WORKING
-
+shutterbutton = tk.Button(master, text="Capture", font = ("Times New Roman", 25))#,command=capturegui()) #uncomment
+shutterbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.412) 
 #make labels
 sandcam = Label(master, text = "Sandcam + logo", borderwidth=1, relief="solid", font = ("Times New Roman", 25))
 sandcam.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.02)
