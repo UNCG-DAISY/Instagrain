@@ -36,7 +36,7 @@ print(screen_height)
 master.geometry(str(screen_width)+'x'+str(screen_height))
 
 #make title
-master.title('Gopro Automate Trial')
+master.title('SandCam')
 
 #make buttons
 previewbutton = tk.Button(master, text="Preview", font = ("Times New Roman", 25), command=stats_update)
