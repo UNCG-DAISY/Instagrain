@@ -40,5 +40,27 @@ Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](.
 Coming Soon
 
 ---
+
+# Build Instructions 
+
+---
+
+### Tools Needed 
+- Soldering Iron
+- Soldering Wire
+- Flux
+- Wire Strippers
+- Metric Hex Bit Set
+- Imperial Allen Key Set
+
+### Components 
+The Build Process is Broke down into 6 major parts
+- Soldering the Adafruit Ultimate GPS Hat and Neopixel board
+- Camera Assembaly 
+- Mounting the Screen
+- Coral mounting 
+- Installing Handles
+- Base Plate Assembally 
+
  
 
