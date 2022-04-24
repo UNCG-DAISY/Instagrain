@@ -54,13 +54,54 @@ Coming Soon
 - Imperial Allen Key Set
 
 ### Components 
-The Build Process is Broke down into 6 major parts
+The Build Process is Broke down into 6 major parts:
 - Soldering the Adafruit Ultimate GPS Hat and Neopixel board
-- Camera Assembaly 
+- Camera Assembly 
 - Mounting the Screen
 - Coral mounting 
 - Installing Handles
-- Base Plate Assembally 
+- Base Plate Assembly 
 
- 
+ ### Step 1 --- Soldering 
+First we will solder the GPIO header to the Adafruit Ultimate GPS Hat  
+(will have a picture here soon)  
+
+Next will cut 3, 8in male to female jumper cables in half, red for 5v, black for ground, and purple for data  
+![IMG_6923](https://user-images.githubusercontent.com/72474059/164987917-60c43567-0d42-475e-9cad-d685fcdeec07.JPG)  
+
+Once the wires are cut strip off about 5mm from each wire similar to how it is done in the above picture
+Next twist the ends of the wires together and tin them  
+(will have a picture here soon)  
+
+Now we will solder the female ends to the Neopixel board, make sure solder the red wire to the middle 5v, the black wire to the middle GND, and the purple wire to the data input, so that the [`ledmountv2.stl`](./ledmountv2.stl) fits 
+(will have a picture here soon) 
+
+Next solder the male ends to the Adafruit Ulimate GPS Hat, the red wire to the 5v strip, the black to the GND strip, and the purple wire to GPIO #8 
+Tip: I recommend soldering the 5v and GND at different ends 
+(will have a picture here soon) 
+
+For the final step wwill place the Neopixel Light into the [`ledmountv2.stl`](./ledmountv2.stl) and attach the dafruit Ultimate GPS Hat to the Raspberry Pi
+(will have a picture here soon) 
+
+---
+
+### Step 2 --- Mounting the Screen
+First we will start the 4 M3 Socket Head Screws into the mounting holes in on the center of the [`screenbracket.stl`](./screenbracket.stl) 
+(will have a picture here soon)
+
+Next attach the Brackets to the polycase with 4 12mm M2 Socket Head Screws  
+![IMG_6914](https://user-images.githubusercontent.com/72474059/164988811-47f7792f-20ce-47d7-869b-d1d7eb456abe.JPG)
+![IMG_6915](https://user-images.githubusercontent.com/72474059/164988827-f3b6764e-d850-47ec-93c6-18f53959513b.JPG)
+
+Once attached place the screen face down with the larger bezel on the left 
+![IMG_6916](https://user-images.githubusercontent.com/72474059/164988864-5151d5f9-de15-4cfc-9e23-48e812a2f8cc.JPG)
+
+Finish by putting the outside of the polycase lid to the backside of the Screen and tightem the M3 Socket Head screws to the screen till the screen is flush with the front of the polycase  
+
+![IMG_6917](https://user-images.githubusercontent.com/72474059/164988931-baf984b2-621c-4751-8f05-0834f4efee7f.JPG)
+
+---
+
+### Step 3 --- Mounting the Coral TPU
+Mounting the Coral TPU uses four 10mm M2.5 Female to Female Hex Standoffs, four 12mm M2.5 Socket Head Screws, and four 6mm M2.5 Socket Head Screws
 
