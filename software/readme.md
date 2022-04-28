@@ -120,10 +120,14 @@ To test use the code below
 
 `bash examples/install_requirements.sh classify_image.py`   
 
-`python3 examples/classify_image.py \
---model test_data/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite \
---labels test_data/inat_bird_labels.txt \
---input test_data/parrot.jpg`   
+`python3 examples/classify_image.py \`  
+`--model test_data/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite \`  
+`--labels test_data/inat_bird_labels.txt \`  
+`--input test_data/parrot.jpg` 
+
+The outtput should look something like the screenshot below, if it is not working restart Pi and try this section again, it has been finicky for me
+
+<img width="648" alt="Screen Shot 2022-04-28 at 1 53 16 PM" src="https://user-images.githubusercontent.com/72474059/165817149-b3d4d6f9-1f39-4a6e-9767-eac3875c4ee7.png">
 
 
 ## set up pyDGS (optional)
