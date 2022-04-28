@@ -64,21 +64,22 @@ The Build Process is Broke down into 6 major parts:
 
  ### Step 1 --- Soldering 
 First we will solder the GPIO header to the Adafruit Ultimate GPS Hat  
-(will have a picture here soon)  
+![IMG_6962](https://user-images.githubusercontent.com/72474059/165761674-ca67fa3f-2d08-4f01-a083-9d312f5fe1ef.JPG)
 
 Next will cut 3, 8in male to female jumper cables in half, red for 5v, black for ground, and purple for data  
 ![IMG_6923](https://user-images.githubusercontent.com/72474059/164987917-60c43567-0d42-475e-9cad-d685fcdeec07.JPG)  
 
 Once the wires are cut strip off about 5mm from each wire similar to how it is done in the above picture
-Next twist the ends of the wires together and tin them  
-(will have a picture here soon)  
-
+and then twist the ends of the wires together and tin them  
+![IMG_6963](https://user-images.githubusercontent.com/72474059/165761764-84695314-5ddc-475b-a0c2-31e72c76a57f.JPG)
+ 
 Now we will solder the female ends to the Neopixel board, make sure solder the red wire to the middle 5v, the black wire to the middle GND, and the purple wire to the data input, so that the [`ledmountv2.stl`](./ledmountv2.stl) fits 
-(will have a picture here soon) 
+![IMG_6960](https://user-images.githubusercontent.com/72474059/165761863-85192372-6de5-4521-90dd-994d8c08320f.JPG)
 
 Next solder the male ends to the Adafruit Ulimate GPS Hat, the red wire to the 5v strip, the black to the GND strip, and the purple wire to GPIO #8 
-Tip: I recommend soldering the 5v and GND at different ends 
-(will have a picture here soon) 
+Tip: I recommend soldering the 5v and GND at different ends (Differenly then I did in the picture below)
+![IMG_6964](https://user-images.githubusercontent.com/72474059/165762025-f27c6d2d-23a4-4b6b-bba1-18b4b20a6853.JPG)
+![IMG_6965](https://user-images.githubusercontent.com/72474059/165762096-6dda401f-bb95-4250-9392-c413fc6de61e.JPG)
 
 For the final step wwill place the Neopixel Light into the [`ledmountv2.stl`](./ledmountv2.stl) and attach the dafruit Ultimate GPS Hat to the Raspberry Pi
 (will have a picture here soon) 
@@ -103,5 +104,7 @@ Finish by putting the outside of the polycase lid to the backside of the Screen 
 ---
 
 ### Step 3 --- Mounting the Coral TPU
-Mounting the Coral TPU uses four 10mm M2.5 Female to Female Hex Standoffs, four 12mm M2.5 Socket Head Screws, and four 6mm M2.5 Socket Head Screws
+Mounting the Coral TPU uses four 10mm M2.5 Female to Female Hex Standoffs, four 12mm M2.5 Socket Head Screws, and four 6mm M2.5 Socket Head Screws.
+This is a fairly starightforward step, for now we recommend it is mounted on the outside until temapture testing can be done with it on the inside
+![IMG_6969](https://user-images.githubusercontent.com/72474059/165763053-3cdb8e88-4223-462c-98ff-5da2f3b9c861.JPG)
 
