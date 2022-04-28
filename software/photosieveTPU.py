@@ -135,6 +135,7 @@ def pyDGS():
 
 def TFlitePred(crop_img):
     #get image in the correct shape,size, format
+    crop_img = crop_img.resize((224,224))
     converted_crop = np.array(crop_img, dtype=np.float32)
     r_crop_img = converted_crop/255
     crop_img_exp = np.expand_dims(r_crop_img, axis=0)
