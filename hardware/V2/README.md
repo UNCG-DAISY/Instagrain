@@ -37,7 +37,11 @@ Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](.
 ---
 # Wiring Diagram
 
-Coming Soon
+To assemble the camera, you will need the parts described in the bill of materials — [`BOMv2.csv`](./BOM.csv). 
+
+A wiring diagram is available in Fritzing format — [`sandcamv2.fzz`](./sandcamv2.fzz).
+
+![image](https://user-images.githubusercontent.com/72474059/165810494-b4ed2cfe-21da-4d84-8d6e-5b2b56b211d7.png)
 
 ---
 
@@ -105,6 +109,6 @@ Finish by putting the outside of the polycase lid to the backside of the Screen 
 
 ### Step 3 --- Mounting the Coral TPU
 Mounting the Coral TPU uses four 10mm M2.5 Female to Female Hex Standoffs, four 12mm M2.5 Socket Head Screws, and four 6mm M2.5 Socket Head Screws.
-This is a fairly starightforward step, for now we recommend it is mounted on the outside until temapture testing can be done with it on the inside
+This is a fairly starightforward step, for now we recommend it is mounted on the outside until temapture testing can be done with the Coral TPU on the inside
 ![IMG_6969](https://user-images.githubusercontent.com/72474059/165763053-3cdb8e88-4223-462c-98ff-5da2f3b9c861.JPG)
 
