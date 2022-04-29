@@ -60,9 +60,9 @@ A wiring diagram is available in Fritzing format — [`sandcamv2.fzz`](./sandcam
 ### Components 
 The Build Process is Broke down into 6 major parts:
 - Soldering the Adafruit Ultimate GPS Hat and Neopixel board
-- Camera Assembly 
 - Mounting the Screen
 - Coral mounting 
+- Camera Assembly 
 - Installing Handles
 - Base Plate Assembly 
 
