@@ -24,17 +24,25 @@ The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmas
 ---
 ### 3D Parts
 
-There are 4 `.stl` files
+There are three `.stl` files
 - [`Camcover.stl`](./Camcover.stl)
 - [`screenbracket.stl`](./screenbracket.stl)
 - [`ledmountv2.stl`](./ledmountv2.stl)
-- Mountingplate.stl (coming soon)
 
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
 Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](./BOMv2.csv) for full part breakdown)
 
 ---
+### CNC Part
+
+There is only one part that needs to be custom made or hand machined
+- [`WQ-57P-01.pdf`](./WQ-57P-01.pdf)
+
+The above file has all the necessary dimension for hand machining, feel free to make any improvements and share!
+
+---
+
 # Wiring Diagram
 
 To assemble the camera, you will need the parts described in the bill of materials — [`BOMv2.csv`](./BOM.csv). 
@@ -58,13 +66,17 @@ A wiring diagram is available in Fritzing format — [`sandcamv2.fzz`](./sandcam
 - Imperial Allen Key Set
 
 ### Components 
-The Build Process is Broke down into 6 major parts:
+The Build Process is Broke down into 8 major parts:
 - Soldering the Adafruit Ultimate GPS Hat and Neopixel board
 - Mounting the Screen
 - Coral mounting 
 - Camera Assembly 
 - Installing Handles
 - Base Plate Assembly 
+- Final assembly
+- Focusing the Camera
+
+---
 
  ### Step 1 --- Soldering 
 First we will solder the GPIO header to the Adafruit Ultimate GPS Hat  
@@ -125,3 +137,26 @@ Next attach 4 standoffs to the bottom of the camera and then 4 between the neopi
 
 ---
 
+### Step 5 --- Mounting the Handles
+For this step you will need 4 quarter inch bolts and 4 lock nuts 
+(Picture coming soon)
+
+---
+
+### Step 6 --- Base Plate Assembly
+
+(steps coming soon)
+
+---
+
+### Step 7 --- Final Assembly
+
+(steps coming soon)
+
+---
+
+### Step 8 --- Focusing the Camera 
+
+(steps coming soon)
+
+---
