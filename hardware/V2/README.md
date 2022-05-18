@@ -85,8 +85,9 @@ Tip: I recommend soldering the 5v and GND at different ends (Differenly then I d
 ![IMG_6964](https://user-images.githubusercontent.com/72474059/165762025-f27c6d2d-23a4-4b6b-bba1-18b4b20a6853.JPG)
 ![IMG_6965](https://user-images.githubusercontent.com/72474059/165762096-6dda401f-bb95-4250-9392-c413fc6de61e.JPG)
 
-For the final step wwill place the Neopixel Light into the [`ledmountv2.stl`](./ledmountv2.stl) and attach the dafruit Ultimate GPS Hat to the Raspberry Pi
-(will have a picture here soon) 
+For the final step we will place the Neopixel Light into the [`ledmountv2.stl`](./ledmountv2.stl) and attach the adafruit Ultimate GPS Hat to the Raspberry Pi
+![IMG_7032](https://user-images.githubusercontent.com/72474059/168943394-9fb79f5f-3cf2-4507-9d99-2d2912598311.JPG)
+
 
 ---
 
@@ -111,4 +112,16 @@ Finish by putting the outside of the polycase lid to the backside of the Screen 
 Mounting the Coral TPU uses four 10mm M2.5 Female to Female Hex Standoffs, four 12mm M2.5 Socket Head Screws, and four 6mm M2.5 Socket Head Screws.
 This is a fairly starightforward step, for now we recommend it is mounted on the outside until temapture testing can be done with the Coral TPU on the inside
 ![IMG_6969](https://user-images.githubusercontent.com/72474059/165763053-3cdb8e88-4223-462c-98ff-5da2f3b9c861.JPG)
+
+### Step 4 --- Camera Assembly
+For this step you will need 4 15mm female to male standoffs, 4 2.5mm hex nuts, and 4 6mm hex head bolts  
+For the purpose of focus the Pi HD camera you will need to disassemble and remove this part
+![IMG_7030](https://user-images.githubusercontent.com/72474059/168943662-fb838fa9-9546-4700-a3f9-a58f59eaeed3.JPG)
+The removed part and pi HD camera will now look like this
+![IMG_7031](https://user-images.githubusercontent.com/72474059/168943727-bb0cd277-f32c-4043-a953-0339e89d68f9.JPG)
+Next attach 4 standoffs to the bottom of the camera and then 4 between the neopixel light and the top of the pi camera
+
+![IMG_7033](https://user-images.githubusercontent.com/72474059/168943945-a6e9746f-649b-4e65-add7-d1255ba00a85.JPG)
+
+---
 
