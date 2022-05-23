@@ -149,10 +149,10 @@ For this step you will need 4 quarter inch bolts and 4 lock nuts
 ---
 
 ### Step 6 --- Base Plate Assembly
-For this step you will need two ribbon cables, four 10mm female to male standoffs, four 11mm female to male standoffs, a velcro strap, and four 6mm M2.5 socket head bolts   
+For this step you will need two ribbon cables, four 10mm female to male standoffs, four 11mm female to male standoffs, a velcro strap, four M2.5 hex nuts, and four 6mm M2.5 socket head bolts   
 First step is to attach the two ribbon cables to the Raspi, for the screen and the camera  
 Next attach the adafruit ultimate GPS hat with the black 11mm standoffs, then attach the 10mm standoffs to the bottom of the pi    
-Secure the Raspi assembly to the baseplate, and then secure the battery to the baseplate  
+Secure the Raspi assembly to the baseplate with the four 6mm M2.5 socket head, and then secure the battery to the baseplate  
 Finally secure the baseplate in the bottom of the case with the four screws that come with the polycase
 (pictures coming soon)
 
