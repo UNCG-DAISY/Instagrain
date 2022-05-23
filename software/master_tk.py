@@ -10,9 +10,8 @@ import os
 import glob
 import datetime
 import subprocess
-#from PIL import Image#, ImageTk
+from PIL import ImageTk, Image
 import PIL.Image
-#import PIL.ImageTK
 import numpy as np
 import pandas as pd
 from pycoral.utils import edgetpu
@@ -182,10 +181,13 @@ def make_plt():
 
 def photo_update():
 	#place image on screen
-	global img
-	sandimage = newpath + '/' + str(counter-1) + '.png'
-	img = tk.PhotoImage(file=sandimage) #counter minus 1 because image hasnt been taken yet 
-	preview = Label(master, image=img)
+	global img3
+	sandimage = newpath + '/' + str(counter-1) + '.jpg'
+	img1 = PIL.Image.open(sandimage) #counter minus 1 because image hasnt been taken yet 
+	previewsize = screen_height - (screen_height*0.10)
+	img2 = img1.resize((int(previewsize),int(previewsize)))
+	img3 = ImageTk.PhotoImage(img2)
+	preview = Label(master, image=img3)
 	preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02) #to fix so that no matter what it is square
 	preview.update()
 
