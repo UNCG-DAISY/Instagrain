@@ -138,8 +138,11 @@ Next attach 4 standoffs to the bottom of the camera and then 4 between the neopi
 ---
 
 ### Step 5 --- Mounting the Handles
-For this step you will need 4 quarter inch bolts and 4 lock nuts 
-(Picture coming soon)
+For this step you will need 4 quarter inch bolts and 4 lock nuts  
+
+![IMG_7060](https://user-images.githubusercontent.com/72474059/169839191-c2aee7d8-f8e0-4a46-a209-5db16d7d5323.JPG)
+![IMG_7061](https://user-images.githubusercontent.com/72474059/169839233-072c267d-7c2f-48ef-b017-9032ff4848db.JPG)
+
 
 ---
 
