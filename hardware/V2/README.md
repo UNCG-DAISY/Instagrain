@@ -151,20 +151,40 @@ For this step you will need 4 quarter inch bolts and 4 lock nuts
 ### Step 6 --- Base Plate Assembly
 For this step you will need two ribbon cables, four 10mm female to male standoffs, four 11mm female to male standoffs, a velcro strap, four M2.5 hex nuts, and four 6mm M2.5 socket head bolts   
 First step is to attach the two ribbon cables to the Raspi, for the screen and the camera  
+![IMG_7090](https://user-images.githubusercontent.com/72474059/170064659-674c37c5-940d-4d0e-9fe1-dfdbc8d562ba.JPG)
+
 Next attach the adafruit ultimate GPS hat with the black 11mm standoffs, then attach the 10mm standoffs to the bottom of the pi    
+![IMG_7091](https://user-images.githubusercontent.com/72474059/170064727-d1a972da-d2de-43a8-86e5-2032eddd89a2.JPG)
+![IMG_7092](https://user-images.githubusercontent.com/72474059/170064744-0b88380b-eebf-40c4-88f5-98f8134b5832.JPG)
+
 Secure the Raspi assembly to the baseplate with the four 6mm M2.5 socket head, and then secure the battery to the baseplate  
+![IMG_7093](https://user-images.githubusercontent.com/72474059/170064918-a49e5546-6715-4515-bb7a-52f349667aa9.JPG)
+
+
 Finally secure the baseplate in the bottom of the case with the four screws that come with the polycase
-(pictures coming soon)
+![IMG_7096](https://user-images.githubusercontent.com/72474059/170065060-2124aad5-20d4-4a01-b22f-875c7575fc82.JPG)
+
 
 ---
 
 ### Step 7 --- Final Assembly
 Thread the GPS antenna through the hexagonal hole in the front of the case annd attach wih double sided tape or glue to the outside of the case   
-Next pull the camera ribbon through the slotted hole in the bottom of the case, and then connect the jumper cables
-Connect the ground and 5v jumper cable to the screen, and connect the display ribbon to the screen
-Finally connect the GPS to the adafruit ultimate GPS hat and zip tie in place to secure
+![IMG_7097](https://user-images.githubusercontent.com/72474059/170065263-4b175bed-5f6f-43af-94b9-3b447823ef98.JPG)
 
-(pictures coming soon)
+Next pull the camera ribbon through the slotted hole in the bottom of the case, and then connect the jumper cables
+![IMG_7099](https://user-images.githubusercontent.com/72474059/170065346-6ef61f57-42d2-4611-98b3-1d308040e99f.JPG)
+
+Connect the ground and 5v jumper cable to the screen, and connect the display ribbon to the screen
+![IMG_7100](https://user-images.githubusercontent.com/72474059/170065393-385f132a-6ecd-46e6-a1b4-ba6824430aed.JPG)
+
+
+Connect the GPS to the adafruit ultimate GPS hat and zip tie in place to secure
+
+![IMG_7101](https://user-images.githubusercontent.com/72474059/170065483-e26e7634-10f2-4ac8-9235-e8883887bfb5.JPG)
+
+For the final step plug in the battery to the on/off button, the on/off button to the Raspi, and then the coral TPU to the Pi
+![IMG_7104](https://user-images.githubusercontent.com/72474059/170065976-e1f2e2a2-fb11-434c-a90b-035699a6d926.JPG)
+
 
 ---
 
