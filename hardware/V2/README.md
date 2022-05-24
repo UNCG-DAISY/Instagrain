@@ -19,7 +19,7 @@ Full List of Materials can be found on the [`BOMv2.csv`](./BOMv2.csv)
 ---
 ### Hardware
 
-The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=6706876626400   
+The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=2837271750220&lnktyp=txt 
 
 ---
 ### 3D Parts
