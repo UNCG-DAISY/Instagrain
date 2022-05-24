@@ -79,7 +79,7 @@ The Build Process is Broke down into 8 major parts:
 ---
 
  ### Step 1 --- Soldering 
-First solder the GPIO header to the Adafruit Ultimate GPS Hat  
+First solder the GPIO header to the Adafruit ultimate GPS hat  
 ![IMG_6962](https://user-images.githubusercontent.com/72474059/165761674-ca67fa3f-2d08-4f01-a083-9d312f5fe1ef.JPG)
 
 Next cut three, 8in male to female jumper cables in half, red for 5v, black for ground, and purple for data  
@@ -104,7 +104,7 @@ For the final step place the Neopixel Light into the [`ledmountv2.stl`](./ledmou
 ---
 
 ### Step 2 --- Mounting the Screen
-For this step, four 8mm M3 socket head screws, four 12mm M2.5 socket head screws, and four M2.5 hex nuts  
+For this step, four 8mm M3 socket head screws, four 12mm M2.5 socket head screws, and four M2.5 hex nuts are needed
 First start the four M3 Socket Head Screws into the two mounting holes in the center of the [`screenbracket.stl`](./screenbracket.stl) 
 (will have a picture here soon)
 
@@ -122,7 +122,7 @@ Finish by putting the outside of the polycase lid to the backside of the Screen 
 ---
 
 ### Step 3 --- Mounting the Coral TPU
-Mounting the Coral TPU uses four 10mm M2.5 female to female hex standoffs, four 12mm M2.5 socket head screws, and four 6mm M2.5 socket head screws
+Mounting the Coral TPU uses four 10mm M2.5 female to female hex standoffs, four 12mm M2.5 socket head screws, and four 6mm M2.5 socket head screws  
 This is a fairly starightforward step, for now we recommend it is mounted on the outside until tempature testing can be done with the Coral TPU on the inside
 ![IMG_6969](https://user-images.githubusercontent.com/72474059/165763053-3cdb8e88-4223-462c-98ff-5da2f3b9c861.JPG)
 
