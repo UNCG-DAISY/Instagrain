@@ -90,7 +90,8 @@ def capture():
 		lon1 = str(getattr(report,'lon',0.0))
 	if getattr(report,'alt','nan')!= 'nan':
 		alt1 = str(getattr(report,'alt','nan'))
-
+	
+	sleep(2)
 	camera.capture(newpath + '/' + str(counter) + '.jpg')
 	camera.capture(newpath + '/' + str(counter) + '.png')
 	im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
