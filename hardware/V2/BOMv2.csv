@@ -19,6 +19,7 @@ Item,Length,Width,Height,Recommended Printer,Recommended Resin,Volume/Print Time
 Camera Hood,126mm,126mm,138.8mm,Form 3+,Tough 1500 Resin,310ml/30.5 hrs/1647,https://github.com/UNCG-DAISY/SandCam/blob/main/hardware/V2/Camcover.stl,,,,,
 Screen Bracket,140mm,10mm,12.6mm,Form 3+,Tough 1500 Resin,34.2ml/8.5 hrs/858,https://github.com/UNCG-DAISY/SandCam/blob/main/hardware/V2/screenbracket.stl,,,,,
 LED Mount,74mm,74mm,4mm,Form 3+,Tough 1500 Resin,9.74ml/5.45 hrs/659,https://github.com/UNCG-DAISY/SandCam/blob/main/hardware/lightmount.stl,,,,,
+Focus Hood, 114mm 114mm, 138.8mm, Form 3+, Tough 1500 resin, 46.44ml/14 hr/1472,https://github.com/UNCG-DAISY/SandCam/blob/main/hardware/V2/focuscover.stl,,,,,
 Hardware,,,,,,,,,,,,
 Item,Size,Length,Quantity,Unit of Measure,Unit Price,Total Cost,Manufacturer,Item Number,Webiste,,,
 18-8 Stainless Steel Socket Head Screw,M2.5,12mm,8,1 pack of 100 each,$6.54 ,$6.54 ,McMaster-Carr,91292A016,,,,
