@@ -24,10 +24,11 @@ The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmas
 ---
 ### 3D Parts
 
-There are three `.stl` files
+There are four `.stl` files
 - [`Camcover.stl`](./Camcover.stl)
 - [`screenbracket.stl`](./screenbracket.stl)
 - [`ledmountv2.stl`](./ledmountv2.stl)
+- [`focuscover.stl`](./focuscover.stl)
 
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
@@ -189,9 +190,10 @@ For the final step plug in the battery to the on/off button, the on/off button t
 ---
 
 ### Step 8 --- Focusing the Camera 
-This is by far the hardest step, it is recommended to disconnect the screen and plug the raspi into a larger screen via hdmi.
+This is by far the hardest step, it is recommended to disconnect the screen and plug the raspi into a larger screen via hdmi   
+First remove the [`Camcover.stl`](./Camcover.stl) and attach the [`focuscover.stl`](./focuscover.stl) which allows for better access to the camera 
 Boot up the raspi and run the [`preview.py`](./preview.py) script
-Focus the camera by twisting the HD lens  (this step might take a while)
+Focus the camera by twisting the HD lens  (this step might take a while), it is recommened to keep a small apeture for a large depth of focus  
 Once the camera is in focus tighten down all the camera screws and place the [`Camcover.stl`](./Camcover.stl) on the case by inserting the pegs and twisting
 
 Finally the touch screen can be hooked back up and the Sandcam is now ready to work
