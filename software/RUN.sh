@@ -2,4 +2,4 @@
 
 cd /home/pi/Desktop
 
-python3 photosieveTPU.py
+python3 master_tk.py
