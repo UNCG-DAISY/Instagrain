@@ -5,7 +5,7 @@ Full List of Materials can be found on the [`BOMv2.csv`](./BOMv2.csv)
 ---
 ### Major Components
 
-- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790
+- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790 additionally there is Digikey links available in the [`BOMv2.csv`](./BOMv2.csv)
   - The Google Coral can be found at https://coral.ai/products/accelerator  
   - The recommended microSD card can be bought on Amazon https://www.amazon.com/SanDisk-Extreme-microSDHC-UHS-3-SDSQXAF-032G-GN6MA/dp/B06XWMQ81P/
   - Due to chip shortages in 2021 and 2022, the Raspberry Pi 4 may not be available on Adafruit
