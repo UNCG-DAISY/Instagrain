@@ -147,10 +147,12 @@ https://coral.ai/docs/accelerator/get-started#1-install-the-edge-tpu-runtime
 https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi  
 
 ## Usage
-When Pi computer is booted up, double click on the RUN.sh script, to see a preview press button and to take a picture hold the button for 2 seconds  
-Photos and a text file will be stored in a new folder name of your choosing, the text file will have every photo with the time taken, corresponding GPS coordinates, altitude, grain size percentiles, d50, mean size, stddev, skewness, and kurtosis.  
+When the Raspi is booted up, double click on the RUN.sh script  
+Once the GUI is booted up you will see two buttons, preview and shutter  
+Preview will show a live preview of the camera, make sure there is no large shells, sticks, or debry 
+Photos and a text file will be stored in a new folder with the date and time, the text file will have every photo with the time taken, corresponding GPS coordinates, altitude, and grain size percentiles  
 
-NOTE: -9999 under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS result use external GPS.  
+NOTE: -9999 under lat, lon, and alt means the GPS can not get a lock on coordinates. For best GPS results use external GPS.  
 
 photos  
 <img width="718" alt="Screen Shot 2021-07-21 at 11 56 56 AM" src="https://user-images.githubusercontent.com/72474059/126538800-ce039c6b-e40f-4c60-90d1-a071767147ba.png"> 
