@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /home/pi/Desktop
+cd /home/pi/Documents/sand_cam/scripts
 
 sudo python3 ringledon.py
