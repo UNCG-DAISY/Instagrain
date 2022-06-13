@@ -10,6 +10,7 @@ import os
 import glob
 import datetime
 import subprocess
+#from PIL import Image#, ImageTk
 from PIL import ImageTk, Image
 import PIL.Image
 import numpy as np
@@ -35,15 +36,13 @@ import matplotlib.pyplot as plt
 pwd = os.getcwd()
 camera = PiCamera()
 camera.resolution = (2048,2048)
-led = LED(13)
-#previewbtn = Button(4, hold_time=2) #screwed up program for some reason
 counter = 1
 
 #New GPS trial
 gpsd.connect()
 
 #TFLITE stuff
-path_to_model = "./models/SandCam_QAT_notdense_edgetpu.tflite"
+path_to_model = "./models/SandCam_MNv2_QAT_notdense_edgetpu.tflite"
 # Initialize the TF interpreter
 interpreter = edgetpu.make_interpreter(path_to_model)
 interpreter.allocate_tensors()
@@ -56,8 +55,8 @@ interpreter.allocate_tensors()
 #direcname = str(input("name your file: "))
 time = datetime.datetime.now()
 direcname = time.strftime("%m_%d_%Y_%H_%M_%S")
-newpath = pwd + '/' + direcname
-croppath = pwd + '/' + direcname + '/crop'
+newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
+croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
 os.makedirs(newpath)
 os.makedirs(croppath)
 
@@ -90,15 +89,15 @@ def capture():
 		lon1 = str(getattr(report,'lon',0.0))
 	if getattr(report,'alt','nan')!= 'nan':
 		alt1 = str(getattr(report,'alt','nan'))
-	
+	if getattr(report,'time','nan')!= 'nan':
+		time = str(getattr(report,'time','nan'))
 	sleep(2)
 	camera.capture(newpath + '/' + str(counter) + '.jpg')
-	camera.capture(newpath + '/' + str(counter) + '.png')
 	im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
 	crop_img = crop_center(im,1024,1024)
 	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
 	txtfile = open(newpath + '/' + direcname + '.csv', 'a')
-	txtfile.write( str(counter) + ',' + str(datetime.datetime.now()) +
+	txtfile.write( str(counter) + ',' + str(time) +
 	',' + lat1 + ',' + lon1 + ','+ alt1 + ',')
 	txtfile.close()
 	
@@ -115,7 +114,6 @@ def capture():
 	print('that was picture:')
 	print(counter)
 	counter = counter + 1
-	
 
 def previewon():
 	camera.start_preview()
@@ -168,24 +166,24 @@ def stats_update():
 		stats.insert(i, str(grain_sizes_label[i]) + ": " + str(predictionstk[i]))
 		#stats.update()
 		
-def make_plt():
-	x = predictionstk
-	y = [2,5,10,16,25,50,75,84,90,95,98]
+# def make_plt():
+	# x = predictionstk
+	# y = [2,5,10,16,25,50,75,84,90,95,98]
 
-	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
-	ax.plot(x,y, color="green")
-	#ax.text(size=1.2)
-	# plt.xlabel("Grain Size (mm)")
-	# plt.ylabel("% Finer")
-	plt.grid()
-	fig.savefig("figure" + str(counter-1) + ".png")
+	# fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
+	# ax.plot(x,y, color="green")
+	# #ax.text(size=1.2)
+	# # plt.xlabel("Grain Size (mm)")
+	# # plt.ylabel("% Finer")
+	# plt.grid()
+	# fig.savefig("figure" + str(counter-1) + ".png")
 
 def photo_update():
 	#place image on screen
 	global img3
 	sandimage = newpath + '/' + str(counter-1) + '.jpg'
 	img1 = PIL.Image.open(sandimage) #counter minus 1 because image hasnt been taken yet 
-	previewsize = screen_height - (screen_height*0.10)
+	previewsize = screen_height - (screen_height*0.10) #this creates the maximum square size we can have in the middle of the screen
 	img2 = img1.resize((int(previewsize),int(previewsize)))
 	img3 = ImageTk.PhotoImage(img2)
 	preview = Label(master, image=img3)
@@ -205,14 +203,14 @@ def updategui():
 	stats_update()
 	coord_update()
 	photo_update()
-	plot_update()
+	# plot_update()
 
 #Capture + update gui
 def capturegui():
 	subprocess.call(["./ringledon.sh"])
 	capture()
 	subprocess.call(["./ringledoff.sh"])
-	make_plt()
+	#make_plt()
 	updategui()
 
 #preview on/off
@@ -303,7 +301,8 @@ lbl.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
 stats = tk.Listbox(master, borderwidth=1, relief="solid", font = ("Consolas", 8))
 stats.place(relheight=(1-0.648), width=listsize , x=listplace, rely=0.628)
 
-time()
+time() 
+
 #create
 while True:
 	master.mainloop()
