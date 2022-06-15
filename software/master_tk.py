@@ -166,17 +166,18 @@ def stats_update():
 		stats.insert(i, str(grain_sizes_label[i]) + ": " + str(predictionstk[i]))
 		#stats.update()
 		
-# def make_plt():
-	# x = predictionstk
-	# y = [2,5,10,16,25,50,75,84,90,95,98]
+def make_plt():
+	cdf = predictionstk
+	y = [.02,.05,.10,.16,.25,.50,.75,.84,.90,.95,.98]
+	pdf = np.gradient(y)
 
-	# fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
-	# ax.plot(x,y, color="green")
+	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
+	ax.plot(x,y, color="green")
 	# #ax.text(size=1.2)
 	# # plt.xlabel("Grain Size (mm)")
 	# # plt.ylabel("% Finer")
-	# plt.grid()
-	# fig.savefig("figure" + str(counter-1) + ".png")
+	plt.grid()
+	fig.savefig("figure" + str(counter-1) + ".png")
 
 def photo_update():
 	#place image on screen
