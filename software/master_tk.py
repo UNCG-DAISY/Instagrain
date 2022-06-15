@@ -57,8 +57,10 @@ time = datetime.datetime.now()
 direcname = time.strftime("%m_%d_%Y_%H_%M_%S")
 newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
 croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
+plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
 os.makedirs(newpath)
 os.makedirs(croppath)
+os.makedirs(plotpath)
 
 print("Made a Directory for this session:")
 print(newpath)
@@ -167,17 +169,21 @@ def stats_update():
 		#stats.update()
 		
 def make_plt():
-	cdf = predictionstk
-	y = [.02,.05,.10,.16,.25,.50,.75,.84,.90,.95,.98]
+	x = predictionstk
+	cdf = [.02,.05,.10,.16,.25,.50,.75,.84,.90,.95,.98]
 	pdf = np.gradient(y)
 
 	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
-	ax.plot(x,y, color="green")
+	ax.plot(x,cdf, color="green")
+	plt.grid()
+	fig.savefig(plotpath + "/" + "figure_cdf" + str(counter-1) + ".png")
 	# #ax.text(size=1.2)
 	# # plt.xlabel("Grain Size (mm)")
 	# # plt.ylabel("% Finer")
+	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
+	ax.plot(x,pdf, color="green")
 	plt.grid()
-	fig.savefig("figure" + str(counter-1) + ".png")
+	fig.savefig(plotpath + "/" + "figure_pdf" + str(counter-1) + ".png")
 
 def photo_update():
 	#place image on screen
