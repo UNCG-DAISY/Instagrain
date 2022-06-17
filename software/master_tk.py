@@ -171,20 +171,57 @@ def stats_update():
 def make_plt():
 	x = predictionstk
 	cdf = [.02,.05,.10,.16,.25,.50,.75,.84,.90,.95,.98]
-	pdf = np.gradient(y)
-
+	pdf = np.gradient(cdf)
+	
+	#cdf
 	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
-	ax.plot(x,cdf, color="green")
+	ax.plot(x,cdf, color="green", linewidth = 2)
 	plt.grid()
+	plt.xticks(size = 16)
+	plt.yticks(size = 16)
+	plt.title("CDF Sample " + str(counter-1), fontsize = 16, fontweight = "bold" )
+	ax.tick_params(axis="x", rotation = 50)
+	ax.set_xlim([min(x), max(x)])
+	ax.set_ylim([0, 1])
 	fig.savefig(plotpath + "/" + "figure_cdf" + str(counter-1) + ".png")
-	# #ax.text(size=1.2)
-	# # plt.xlabel("Grain Size (mm)")
-	# # plt.ylabel("% Finer")
+	
+	#pdf
 	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
-	ax.plot(x,pdf, color="green")
+	ax.plot(x,pdf, color="red", linewidth = 2)
 	plt.grid()
+	plt.xticks(size = 16)
+	plt.yticks(size = 16)
+	plt.title("PDF Sample " + str(counter-1), fontsize = 16, fontweight = "bold" )
+	ax.tick_params(axis="x", rotation = 50)
+	ax.set_xlim([min(x), max(x)])
+	ax.set_ylim([0, 1])
 	fig.savefig(plotpath + "/" + "figure_pdf" + str(counter-1) + ".png")
+	
+current_plt = 1 
+	
+def change_plt():
+	global current_plt
+	if current_plt == 1:
+		current_plt = 0
+	else:
+		current_plt = 1
+	plot_update()
 
+def plot_update():
+	global grainplot
+	if current_plt == 1:
+		plotfile = plotpath + "/" + "figure_cdf" + str(counter-1) + ".png"
+		grainplot = tk.PhotoImage(file=plotfile)
+		statsplot = tk.Button(master, image=grainplot, command=change_plt)
+		statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
+		statsplot.update()
+	else:
+		plotfile = plotpath + "/" + "figure_pdf" + str(counter-1) + ".png"
+		grainplot = tk.PhotoImage(file=plotfile)
+		statsplot = tk.Button(master, image=grainplot, command=change_plt)
+		statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
+		statsplot.update()
+		
 def photo_update():
 	#place image on screen
 	global img3
@@ -196,14 +233,6 @@ def photo_update():
 	preview = Label(master, image=img3)
 	preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02) #to fix so that no matter what it is square
 	preview.update()
-
-def plot_update():
-	global grainplot
-	plotfile = "/home/pi/Desktop/figure" + str(counter-1) + ".png"
-	grainplot = tk.PhotoImage(file=plotfile)
-	statsplot = Label(master, image=grainplot)
-	statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
-	statsplot.update()
 		
 #Update gui function
 def updategui():
