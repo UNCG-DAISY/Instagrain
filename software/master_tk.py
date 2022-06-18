@@ -32,6 +32,10 @@ import neopixel
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+#software version 
+software_version = 0.1
+model_version = 0.1
+
 #define gpio pins and variables
 pwd = os.getcwd()
 camera = PiCamera()
@@ -66,6 +70,7 @@ print("Made a Directory for this session:")
 print(newpath)
 
 txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
+txtfile.write('software_version ' + str(software_version) + ',' +  'model-version ' + str(model_version) + "\n")
 txtfile.write('Filename, Date/Time (UTC), Latitude (DD) , Longitude (DD), Altitude(m), D_2(mm), D_5(mm), D_10(mm), D_16(mm), D_25(mm), D_50(mm), D_75(mm), D_84(mm), D_90(mm), D_95(mm), D_98(mm) '"\n")
 txtfile.close()
 textarg = str(newpath + '/' + direcname + '.csv')
@@ -84,6 +89,7 @@ def capture():
 	lat1 = "-9999"
 	lon1 = "-9999"
 	alt1 = "-9999"
+	time = "na"
 	print(report)
 	if getattr(report,'lat',0.0)!=0:
 		lat1 = str(getattr(report,'lat',0.0))
@@ -206,7 +212,7 @@ def change_plt():
 	else:
 		current_plt = 1
 	plot_update()
-
+	
 def plot_update():
 	global grainplot
 	if current_plt == 1:
@@ -221,7 +227,7 @@ def plot_update():
 		statsplot = tk.Button(master, image=grainplot, command=change_plt)
 		statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 		statsplot.update()
-		
+	
 def photo_update():
 	#place image on screen
 	global img3
@@ -239,7 +245,8 @@ def updategui():
 	stats_update()
 	coord_update()
 	photo_update()
-	# plot_update()
+	make_plt()
+	plot_update()
 
 #Capture + update gui
 def capturegui():
@@ -316,10 +323,6 @@ preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02) #to 
 ##create variable
 listsize = screen_width - (previewsize + (.08*screen_width) + (screen_width*0.176))
 listplace = (previewsize + (.06*screen_width) + (screen_width*0.176))
-
-# statsplot = Label(master, borderwidth=1, relief="solid")
-# statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
-#larger font size in the font
 
 #
 #make clock
