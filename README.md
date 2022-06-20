@@ -5,6 +5,9 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/UNCG-DAISY/SandCam/graphs/commit-activity)
 ![GitHub](https://img.shields.io/github/license/UNCG-DAISY/SandCam)
 
+[![Wiki](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/UNCG-DAISY/SandCam/wiki)
+[![Wiki](https://img.shields.io/badge/discussion-active-darkgreen)](https://github.com/UNCG-DAISY/SandCam/discussions)
+
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
