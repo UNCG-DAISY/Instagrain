@@ -28,6 +28,7 @@ import tkinter as tk
 #Import NeoPixel Commands
 import board
 import neopixel
+import random, string
 #Import matplotlib
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -56,10 +57,14 @@ interpreter.allocate_tensors()
 #print(interpreter.get_output_details())
 
 #make new directory and create text file within
+#random 5 letter generation fn
+def random_five():
+	return ''.join(random.sample(string.ascii_uppercase,5))
 
 #direcname = str(input("name your file: "))
 time = datetime.datetime.now()
-direcname = time.strftime("%m_%d_%Y_%H_%M_%S")
+#direcname = time.strftime("%m_%d_%Y_%H_%M_%S")
+direcname = random_five()
 newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
 croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
 plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
