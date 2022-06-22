@@ -12,16 +12,17 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 
-
-A 3D printed camera to measure sediment grain size in the field from pictures.
-
-
-<img src="./SNC.jpg" width=50% height=50%/>
+<img src="./Logo" width=20% height=20%/>
 
 
+A camera to measure sediment grain size in the field.
 ---
 
-Currently we have a working version of the camera and are refining the camera design, hardware, and software. Check out the issues if you want to follow along or contribute. 
+Currently we have a working version of the camera and are refining the camera design, hardware, and software. 
+
+<img src="./SNC.jpg" width=20% height=20%/>
+
+Check out the issues if you want to follow along or contribute. 
 
 The camera currently runs a deep learning model to estimate grain size from pictures (using tensorflow lite) — see the [ML readme](/ml/readme.md). 
 
