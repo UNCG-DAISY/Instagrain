@@ -438,8 +438,8 @@ def load_direc():
 	# print(counter)
 	
 	session_hash = Label(master, text = direcname, font = ('Consolas', 15, 'bold'),
-            background = 'black',
-            foreground = 'green')
+            background = '#e15e28',
+            foreground = 'black')
 	session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
 	
 	txtfile = open(newpath + '/' + direcname + '.csv', 'r')
