@@ -511,7 +511,7 @@ statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d')
 statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 
 #make labels
-sandcam = Label(master, text = "Sandcam", borderwidth=0, font = ("Consolas", 22), bg ="white")
+sandcam = Label(master, text = "Sandcam", borderwidth=0, font = ("Consolas", 10), bg ="white")
 sandcam.place(relheight=0.176, relwidth=0.088, relx=0.02, rely=0.02)
 
 lattk = Label(master, text = "Latitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
@@ -543,11 +543,11 @@ stop_time = print("make tk widgets function: " + str(time.time() - start_time))
 logo = '/home/pi/Documents/sand_cam/scripts/sandcam_logo_white-01.png'
 logo1 = PIL.Image.open(logo) 
 previewsize_h = screen_height * 0.176  
-previewsize_w = screen_width * 0.088
+previewsize_w = screen_width * 0.078
 logo2 = logo1.resize((int(previewsize_h),int(previewsize_w)))
 logo3 = ImageTk.PhotoImage(logo2)
 logoimg = Label(master, image=logo3, bg="white")
-logoimg.place(relheight=0.176, relwidth=0.088, relx=0.108, rely=0.02) 
+logoimg.place(relheight=0.176, relwidth=0.098, relx=0.100, rely=0.02) 
 
 #destroy loading screen
 started = True
