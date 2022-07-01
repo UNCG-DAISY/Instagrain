@@ -1,5 +1,7 @@
 # SandCam
 
+<img src="./Logo" width=20% height=20%/>
+
 [![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/SandCam)](
 https://github.com/UNCG-DAISY/SandCam/commits/main)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/UNCG-DAISY/SandCam/graphs/commit-activity)
@@ -12,15 +14,12 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 
-<img src="./Logo" width=20% height=20%/>
-
-
 A camera to measure sediment grain size in the field.
----
 
 Currently we have a working version of the camera and are refining the camera design, hardware, and software. 
 
 <img src="./SNC.jpg" width=20% height=20%/>
+
 
 Check out the issues if you want to follow along or contribute. 
 
