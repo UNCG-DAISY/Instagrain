@@ -1,4 +1,4 @@
-# SandCam
+# Instagrain
 
 <img src="./Logo" width=20% height=20%/>
 
@@ -14,19 +14,19 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 
-A camera to measure sediment grain size in the field.
+A camera for measuring sediment grain size in the field - 'instant grainification' (h/t D. Rubin et al., 2007)
+The camera currently runs a deep learning model to estimate grain size from pictures (using tensorflow lite)
 
-Currently we have a working version of the camera and are refining the camera design, hardware, and software. 
+We have several working prototypes out in the field. Here at HQ we continue to refine the camera design, hardware, software, and ML model. 
+
+Prototpye 1 (3D printed case)
 
 <img src="./SNC.jpg" width=20% height=20%/>
 
+Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
-Check out the issues if you want to follow along or contribute. 
-
-The camera currently runs a deep learning model to estimate grain size from pictures (using tensorflow lite) — see the [ML readme](/ml/readme.md). 
-
-(The camera can also run [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution (percent finer) of an image using the continuous wavelet transform.
-
+<img src="./CamDB_2.jpg" width=20% height=20%/>
+<img src="./CamDB._1jpg.jpg" width=20% height=20%/>
 
 ## To Build the Camera:
 
