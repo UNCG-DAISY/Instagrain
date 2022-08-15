@@ -1,6 +1,9 @@
 # Setting up the camera software on the Pi
 
-After assembling the case and wiring the electronics for the RPi (see the ['hardware directory'](../hardware)), it's time to get the Software and configurations set. 
+After assembling the case and wiring the electronics for the RPi (see the ['hardware directory'](../hardware)), it's time to get the Software and configurations set.
+
+By default the camera runs a deep learning model, but can also run [pyDGS](https://github.com/dbuscombe-usgs/pyDGS) — software written by [Dan Buscombe](https://github.com/dbuscombe-usgs) that estimates grain size distribution (percent finer) of an image using the continuous wavelet transform.
+
 
 ## Option 1
 Flash sd card with image from https://cshl.synology.me:5001/d/f/670216654824718296   
