@@ -14,7 +14,7 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 
-A camera for measuring sediment grain size in the field - 'instant grainification' (h/t D. Rubin et al., 2007)
+A camera for measuring sediment grain size in the field - ['instant grainification'](https://ui.adsabs.harvard.edu/abs/2007AGUFM.H51I0899R/abstract) (h/t Rubin & Chezar, 2007)
 The camera currently runs a deep learning model to estimate grain size from pictures (using tensorflow lite)
 
 We have several working prototypes out in the field. Here at HQ we continue to refine the camera design, hardware, software, and ML model. 
