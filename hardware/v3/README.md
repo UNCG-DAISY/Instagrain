@@ -12,6 +12,7 @@ Full List of Materials can be found on the BOMv3 (coming soon)
 - There are two STEP files that can be sent to Polycase* to order the custom-designed, CNC-machined camera housing (expect 1 to 3 week lead time). Polycase should alread have the "setup" complete, which reduces the overall unit cost. 
   - WQ-50_BODY.step
   - WQ-50_LID.stp
+  - WQ-50_BASEPLATE.stp
 
 *Instructions for sending requests for custom CNC-machined parts are available at https://www.polycase.com/customized-enclosures 
 
@@ -33,14 +34,6 @@ There are four `.stl` files
 We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
 
 Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](./BOMv2.csv) for full part breakdown)
-
----
-### CNC Part
-
-There is only one part that needs to be custom made or hand machined
-- [`WQ-57P-01.pdf`](./WQ-57P-01.pdf)
-
-The above file has all the necessary dimensions for hand machining, feel free to make any improvements and share!
 
 ---
 
