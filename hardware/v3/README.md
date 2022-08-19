@@ -5,8 +5,7 @@ Full List of Materials can be found on the BOMv3 (coming soon)
 ---
 ### Major Components
 
-- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790 additionally there is Digikey links available in the [`BOMv3.csv`]
-  - The Google Coral can be found at https://coral.ai/products/accelerator  
+- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790 additionally there is Digikey links available in the [`BOMv3.csv`]  
   - The recommended microSD card can be bought on Amazon https://www.amazon.com/SanDisk-Extreme-microSDHC-UHS-3-SDSQXAF-032G-GN6MA/dp/B06XWMQ81P/
   - Due to chip shortages in 2021 and 2022, the Raspberry Pi 4 may not be available on Adafruit
 - There are two STEP files that can be sent to Polycase* to order the custom-designed, CNC-machined camera housing (expect 1 to 3 week lead time). Polycase should alread have the "setup" complete, which reduces the overall unit cost. 
@@ -20,7 +19,7 @@ Full List of Materials can be found on the BOMv3 (coming soon)
 ---
 ### Hardware
 
-The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=2837271750220&lnktyp=txt 
+The fastener hardware can be ordered from a Mcmaster-Carr cart https://www.mcmaster.com/order/rcvRtedOrd.aspx?ordid=9740526925745&lnktyp=txt
 
 ---
 ### 3D Parts
@@ -31,15 +30,15 @@ There are four `.stl` files
 - [`ledmountv2.stl`](./ledmountv2.stl)
 - [`focuscover.stl`](./focuscover.stl)
 
-We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using rigid resin.
+We recommend printing all of them with a SLA printer with a build volumne of 14.5 × 14.5 × 18.5 cm and using grey pro resin.
 
-Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv2.csv`](./BOMv2.csv) for full part breakdown)
+Printing takes roughly 44.45hrs with a Form3/3+ printer (Look at [`BOMv3.csv`](./BOMv3.csv) for full part breakdown)
 
 ---
 
 # Wiring Diagram
 
-To assemble the camera, you will need the parts described in the bill of materials — [`BOMv2.csv`](./BOM.csv). 
+To assemble the camera, you will need the parts described in the bill of materials — [`BOMv3.csv`](./BOM.csv). 
 
 A wiring diagram is available in Fritzing format — [`sandcamv2.fzz`](./sandcamv2.fzz).
 
@@ -62,8 +61,7 @@ A wiring diagram is available in Fritzing format — [`sandcamv2.fzz`](./sandcam
 ### Components 
 The Build Process is Broke down into 8 major parts:
 - Soldering the Adafruit Ultimate GPS Hat and Neopixel board
-- Mounting the Screen
-- Coral mounting 
+- Mounting the Screen 
 - Camera Assembly 
 - Installing Handles
 - Base Plate Assembly 
