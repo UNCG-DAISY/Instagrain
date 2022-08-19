@@ -1,6 +1,6 @@
 # BOM v3
 
-Full List of Materials can be found on the BOMv3 (coming soon)
+Full List of Materials can be found on the BOMv3.csv, (currently a rough draft)
 
 ---
 ### Major Components
