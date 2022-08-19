@@ -8,3 +8,4 @@ The third version, currently a work in progress, is also a custom CNC'ed polycas
 
 In the future, we hope to provide a smaller form factor, but the full size RPi-branded 7 inch touchscreen is extremely nice to work with in the field (and in the lab).
 
+`.stp` files can be viewed using [Autodesk Viewer](https://viewer.autodesk.com)
