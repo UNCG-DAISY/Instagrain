@@ -1,6 +1,6 @@
 # Instagrain
 
-<img src="./assets/Logo" width=20% height=20%/>
+<img src="./assets/Logo.jpg" width=20% height=20%/>
 
 [![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/SandCam)](
 https://github.com/UNCG-DAISY/SandCam/commits/main)
