@@ -1,6 +1,6 @@
 # Instagrain
 
-<img src="./Logo" width=20% height=20%/>
+<img src="./assets/Logo" width=20% height=20%/>
 
 [![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/SandCam)](
 https://github.com/UNCG-DAISY/SandCam/commits/main)
@@ -21,12 +21,12 @@ We have several working prototypes out in the field. Here at HQ we continue to r
 
 Prototpye 1 (3D printed case)
 
-<img src="./SNC.jpg" width=20% height=20%/>
+<img src="./assets/SNC.jpg" width=20% height=20%/>
 
 Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
-<img src="./CamDB_2.jpg" width=20% height=20%/>
-<img src="./CamDB._1jpg.jpg" width=20% height=20%/>
+<img src="./assets/CamDB_2.jpg" width=20% height=20%/>
+<img src="./assets/CamDB._1jpg.jpg" width=20% height=20%/>
 
 ## To Build the Camera:
 
@@ -44,4 +44,4 @@ Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
 We intend to foster an inclusive and respectful environment surrounding the contribution and discussion of our project. Make sure you understand our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
-<img src="./crop2.jpg" width=50% height=50% />
+<img src="./assets/crop2.jpg" width=50% height=50% />
