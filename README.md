@@ -26,7 +26,7 @@ Prototpye 1 (3D printed case)
 Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
 <img src="./assets/CamDB_2.jpg" width=20% height=20%/>
-<img src="./assets/CamDB._1jpg.jpg" width=20% height=20%/>
+<img src="./assets/CamDB._1.jpg" width=20% height=20%/>
 
 ## To Build the Camera:
 
