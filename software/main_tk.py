@@ -35,6 +35,8 @@ import matplotlib.pyplot as plt
 from tkinter import *
 import tkinter as tk
 import threading
+#Import TF
+from tflite_runtime.interpreter import Interpreter
 
 stop_time = print("importing packages : " + str(time.time() - start_time))
 
@@ -54,11 +56,21 @@ start_time = time.time()
 gpsd.connect()
 stop_time = print("GPS connect: " + str(time.time() - start_time))
 
-#TFLITE stuff
+#Uncomment for use of google coral
+
+# path_to_model = "./models/SandCam_MNv2_QAT_notdense_edgetpu.tflite"
+# # Initialize the TF interpreter
+# interpreter = edgetpu.make_interpreter(path_to_model)
+# interpreter.allocate_tensors()
+# #uncomment lines below to debug and look at expected I/O
+# #print(interpreter.get_input_details())
+# #print(interpreter.get_output_details())
+# stop_time = print("TFLITE_stuff: " + str(time.time() - start_time))
+
 start_time = time.time()
-path_to_model = "./models/SandCam_MNv2_QAT_notdense_edgetpu.tflite"
+path_to_model = "./models/SandCam_MNv2_QAT_notdense.tflite"
 # Initialize the TF interpreter
-interpreter = edgetpu.make_interpreter(path_to_model)
+interpreter = Interpreter(path_to_model)
 interpreter.allocate_tensors()
 #uncomment lines below to debug and look at expected I/O
 #print(interpreter.get_input_details())
