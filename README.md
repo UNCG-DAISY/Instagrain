@@ -2,13 +2,13 @@
 
 <img src="./assets/Logo.jpg" width=20% height=20%/>
 
-[![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/SandCam)](
+[![Last Commit](https://img.shields.io/github/last-commit/UNCG-DAISY/Instagrain)](
 https://github.com/UNCG-DAISY/SandCam/commits/main)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/UNCG-DAISY/SandCam/graphs/commit-activity)
-![GitHub](https://img.shields.io/github/license/UNCG-DAISY/SandCam)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/UNCG-DAISY/Instagrain/graphs/commit-activity)
+![GitHub](https://img.shields.io/github/license/UNCG-DAISY/Instagrain)
 
-[![Wiki](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/UNCG-DAISY/SandCam/wiki)
-[![Wiki](https://img.shields.io/badge/discussion-active-darkgreen)](https://github.com/UNCG-DAISY/SandCam/discussions)
+[![Wiki](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/UNCG-DAISY/Instagrain/wiki)
+[![Wiki](https://img.shields.io/badge/discussion-active-darkgreen)](https://github.com/UNCG-DAISY/Instagrain/discussions)
 
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -19,7 +19,7 @@ The camera currently runs a deep learning model to estimate grain size from pict
 
 We have several working prototypes out in the field. Here at HQ we continue to refine the camera design, hardware, software, and ML model. 
 
-Prototpye 1 (3D printed case)
+Prototype 1 (3D printed case)
 
 <img src="./assets/SNC.jpg" width=20% height=20%/>
 
@@ -28,19 +28,17 @@ Prototype 2 (current version; CNC'ed case and 3D printed parts)
 <img src="./assets/CamDB_2.jpg" width=20% height=20%/>
 <img src="./assets/CamDB._1.jpg" width=20% height=20%/>
 
-## To Build the Camera:
+## Do you want to be involved?:
 
 0. Get in touch with us, we would be happy to collaborate!
 
-1. Read through the repository.
+1. Check out our [wiki](https://github.com/UNCG-DAISY/Instagrain/wiki) to learn how about building and using the camera.  
 
-2. Hardware: Follow the instructions in the [hardware readme](./hardware/readme.md) to 3D print the case with an SLA or SLS printer. Wire the electronic components. Assemble the camera.
+2. Read through the repository to look at the files/code we provide.
 
-3. Software: Follow the instructions in the [software readme](./software/readme.md) to load the Raspberry Pi with the neccesary programs.
+3. Check out the open [issues](https://github.com/UNCG-DAISY/Instagrain/issues) and participate in our [discussion](https://github.com/UNCG-DAISY/Instagrain/discussions). 
 
-4. Test the camera. We recommend taking a picture of sand with known grain size characteristics.
-
-## Code of Conduct
+## Code of Conduct:
 
 We intend to foster an inclusive and respectful environment surrounding the contribution and discussion of our project. Make sure you understand our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
