@@ -2,26 +2,6 @@
 #
 # MIT License
 
-#Loading screen
-from tkinter import *
-import tkinter as tk
-import threading
-
-started = False
-
-# def loading_screen():
-	# loading = Tk()
-	# screen_width = loading.winfo_screenwidth()
-	# screen_height = loading.winfo_screenheight()
-	# print(screen_width)
-	# print(screen_height)
-	# loading.geometry(str(screen_width)+'x'+str(screen_height))
-	
-	# loading.protocol('WM_DELETE_WINDOW', lambda: loading.destroy if started else False)
-	# loading.mainloop()
-
-# threading.Thread(target=loading_screen).start()
-
 #import packages
 import time
 start_time = time.time()
@@ -37,10 +17,10 @@ from PIL import ImageTk, Image
 import PIL.Image
 import numpy as np
 import pandas as pd
-
-#import TF
-from tflite_runtime.interpreter import Interpreter
-
+from pycoral.utils import edgetpu
+from pycoral.utils import dataset
+from pycoral.adapters import common
+from pycoral.adapters import classify
 #Import time Packages 
 from time import sleep 
 from time import strftime
@@ -51,10 +31,17 @@ import random, string
 #Import matplotlib
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+#Import Tkinter
+from tkinter import *
+import tkinter as tk
+import threading
+#Import TF
+from tflite_runtime.interpreter import Interpreter
+
 stop_time = print("importing packages : " + str(time.time() - start_time))
 
 #software version 
-software_version = 0.2
+software_version = 0.1
 model_version = 0.1
 
 #define gpio pins and variables
@@ -62,7 +49,6 @@ start_time = time.time()
 pwd = os.getcwd()
 camera = PiCamera()
 camera.resolution = (2048,2048)
-counter = 1
 stop_time = print("defining pins and vars: " + str(time.time() - start_time))
 
 #GPSD_connect
@@ -70,10 +56,19 @@ start_time = time.time()
 gpsd.connect()
 stop_time = print("GPS connect: " + str(time.time() - start_time))
 
-#TFLITE model, not the coral one
+#Uncomment for use of google coral
+
+# path_to_model = "./models/SandCam_MNv2_QAT_notdense_edgetpu.tflite"
+# # Initialize the TF interpreter
+# interpreter = edgetpu.make_interpreter(path_to_model)
+# interpreter.allocate_tensors()
+# #uncomment lines below to debug and look at expected I/O
+# #print(interpreter.get_input_details())
+# #print(interpreter.get_output_details())
+# stop_time = print("TFLITE_stuff: " + str(time.time() - start_time))
+
 start_time = time.time()
 path_to_model = "./models/SandCam_MNv2_QAT_notdense.tflite"
-
 # Initialize the TF interpreter
 interpreter = Interpreter(path_to_model)
 interpreter.allocate_tensors()
@@ -87,44 +82,16 @@ stop_time = print("TFLITE_stuff: " + str(time.time() - start_time))
 def random_five():
 	return ''.join(random.sample(string.ascii_uppercase,5))
 
-#Create directories
-def startup():
-	global direcname
-	direcname = random_five()
-	global newpath
-	newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
-	global croppath
-	croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
-	global plotpath
-	plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
-	os.makedirs(newpath)
-	os.makedirs(croppath)
-	os.makedirs(plotpath)
-
-	print("Made a Directory for this session:")
-	print(newpath)
-
-	#Make textfile
-
-	txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
-	txtfile.write('software_version ' + str(software_version) + ',' +  'model-version ' + str(model_version) + "\n")
-	txtfile.write('Filename, Date/Time (UTC), Latitude (DD) , Longitude (DD), Altitude(m), D_2(mm), D_5(mm), D_10(mm), D_16(mm), D_25(mm), D_50(mm), D_75(mm), D_84(mm), D_90(mm), D_95(mm), D_98(mm) '"\n")
-	txtfile.close()
-	global textarg
-	textarg = str(newpath + '/' + direcname + '.csv')
-	#global croparg
-	#croparg = str(croppath)
-
-	print("Made a txt file for this session")
-
-startup()
-
 ### BELOW IS FUNCTION CODE ###
+counter = 0
+
 start_time = time.time()
 def capture():
+	
 	import time
 	start_time = time.time()
 	global counter 
+	counter = counter + 1
 	global lat1 
 	global lon1 
 	global alt1
@@ -157,42 +124,70 @@ def capture():
 	print(lon1)
 	print(alt1)
 	
-	#prediction step
-	#with pyDGS
-	#pyDGS()
-	#with TFLite:
-	
 	TFlitePred(crop_img)
 	print('that was picture:')
 	print(counter)
-	counter = counter + 1
 	import time
 	stop_timer = time.time() - start_time
 	stop_time = print("capture function: " + str(stop_timer))
 
 def restart_gui():
 	global counter
-	counter = 1
+	counter = 0
 	print(counter)
 	
-	startup()
+	global direcname
+	direcname = random_five()
+	global newpath
+	newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
+	global croppath
+	croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
+	global plotpath
+	plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
+	os.makedirs(newpath)
+	os.makedirs(croppath)
+	os.makedirs(plotpath)
+
+	print("Made a Directory for this session:")
+	print(newpath)
+
+	#Make textfile
+
+	txtfile = open(newpath + '/' + direcname + '.csv', 'w+')
+	txtfile.write('software_version ' + str(software_version) + ',' +  'model-version ' + str(model_version) + "\n")
+	txtfile.write('Filename, Date/Time (UTC), Latitude (DD) , Longitude (DD), Altitude(m), D_2(mm), D_5(mm), D_10(mm), D_16(mm), D_25(mm), D_50(mm), D_75(mm), D_84(mm), D_90(mm), D_95(mm), D_98(mm) '"\n")
+	txtfile.close()
+	global textarg
+	textarg = str(newpath + '/' + direcname + '.csv')
+	#global croparg
+	#croparg = str(croppath)
+	
+	previewbutton['state'] = NORMAL
+	shutterbutton['state'] = NORMAL
+	
+	print("Made a txt file for this session")
 	
 	stats.delete(0,END)
 	
-	lattk = Label(master, text = "Latitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10))
+	lattk = Label(master, text = "Latitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
 	lattk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.608)
 
-	lontk = Label(master, text = "Longitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10))
+	lontk = Label(master, text = "Longitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
 	lontk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.731)
 
-	elevtk = Label(master, text = "Altitude (m): ", borderwidth=1, relief="solid",font = ("Consolas", 10))
+	elevtk = Label(master, text = "Altitude (m): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
 	elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
 	
-	preview = Label(master, text = "Sandcam", borderwidth=1, relief="solid")
+	preview = Label(master, text = "Sandcam", borderwidth=1, relief="solid",bg='#e7ac1d')
 	preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02)
 	
-	statsplot = tk.Button(master, text = "Plot")
+	statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = NORMAL)
 	statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
+	
+	session_hash = Label(master, text = direcname, font = ('Consolas', 15, 'bold'),
+            background = '#e15e28',
+            foreground = 'black')
+	session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
 	
 def previewon():
 	import time
@@ -239,14 +234,11 @@ def TFlitePred(crop_img):
     r_crop_img = converted_crop/255
     crop_img_exp = np.expand_dims(r_crop_img, axis=0)
  
-    input_index = interpreter.get_input_details()[0]["index"]
-    output_index = interpreter.get_output_details()[0]["index"]
-    interpreter.set_tensor(input_index, crop_img_exp)
+    common.set_input(interpreter, crop_img_exp)
     interpreter.invoke()
     
-    
     global predictionstk
-    predictions = interpreter.get_tensor(output_index)
+    predictions = common.output_tensor(interpreter, 0)
     predictionstk = predictions.tolist()
     predictionstk = [round(num,3) for num in predictionstk[0]]
     print(predictions)
@@ -283,11 +275,11 @@ def make_plt():
 	plt.grid()
 	plt.xticks(size = 16)
 	plt.yticks(size = 16)
-	plt.title("CDF Sample " + str(counter-1), fontsize = 16, fontweight = "bold" )
+	plt.title("CDF Sample " + str(counter), fontsize = 16, fontweight = "bold" )
 	ax.tick_params(axis="x", rotation = 50)
 	ax.set_xlim([min(x), max(x)])
 	ax.set_ylim([0, 1])
-	fig.savefig(plotpath + "/" + "figure_cdf" + str(counter-1) + ".png")
+	fig.savefig(plotpath + "/" + "figure_cdf" + str(counter) + ".png")
 	
 	#pdf
 	fig, ax = plt.subplots(figsize=(4.5,5.5), dpi=35)
@@ -295,11 +287,11 @@ def make_plt():
 	plt.grid()
 	plt.xticks(size = 16)
 	plt.yticks(size = 16)
-	plt.title("PDF Sample " + str(counter-1), fontsize = 16, fontweight = "bold" )
+	plt.title("PDF Sample " + str(counter), fontsize = 16, fontweight = "bold" )
 	ax.tick_params(axis="x", rotation = 50)
 	ax.set_xlim([min(x), max(x)])
 	ax.set_ylim([0, 1])
-	fig.savefig(plotpath + "/" + "figure_pdf" + str(counter-1) + ".png")
+	fig.savefig(plotpath + "/" + "figure_pdf" + str(counter) + ".png")
 	stop_timer = time.time() - start_time
 	stop_time = print("make_plot function: " + str(stop_timer))
 	
@@ -322,13 +314,13 @@ def plot_update():
 	start_time = time.time()
 	global grainplot
 	if current_plt == 1:
-		plotfile = plotpath + "/" + "figure_cdf" + str(counter-1) + ".png"
+		plotfile = plotpath + "/" + "figure_cdf" + str(counter) + ".png"
 		grainplot = tk.PhotoImage(file=plotfile)
 		statsplot = tk.Button(master, image=grainplot, command=change_plt, bg='#e7ac1d')
 		statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 		statsplot.update()
 	else:
-		plotfile = plotpath + "/" + "figure_pdf" + str(counter-1) + ".png"
+		plotfile = plotpath + "/" + "figure_pdf" + str(counter) + ".png"
 		grainplot = tk.PhotoImage(file=plotfile)
 		statsplot = tk.Button(master, image=grainplot, command=change_plt,bg='#e7ac1d')
 		statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
@@ -337,11 +329,12 @@ def plot_update():
 	stop_time = print("plot_update function: " + str(stop_timer))
 	
 def photo_update():
+	#Need to add loading parameter because the computer doesnt know if it is starting a new parameter or loading one 
 	import time
 	start_time = time.time()
 	#place image on screen
 	global img3
-	sandimage = newpath + '/' + str(counter-1) + '.jpg'
+	sandimage = newpath + '/' + str(counter) + '.jpg'
 	img1 = PIL.Image.open(sandimage) #counter minus 1 because image hasnt been taken yet 
 	previewsize = screen_height - (screen_height*0.10) #this creates the maximum square size we can have in the middle of the screen
 	img2 = img1.resize((int(previewsize),int(previewsize)))
@@ -371,7 +364,6 @@ def capturegui():
 	subprocess.call(["./ringledon.sh"])
 	capture()
 	subprocess.call(["./ringledoff.sh"])
-	#make_plt()
 	updategui()
 	stop_timer = time.time() - start_time
 	stop_time = print("capturegui function: " + str(stop_timer))
@@ -386,6 +378,7 @@ def preview():
 	stop_timer = time.time() - start_time
 	stop_time = print("preview function: " + str(stop_timer))
 
+#Update Coordinates on GUI
 def coord_update():
 	import time
 	start_time = time.time()
@@ -407,6 +400,7 @@ def pop_up():
 	global popup
 	popup = Toplevel(master)
 	popup.geometry(str(int(screen_width/2))+'x'+str(int(screen_height/2)))
+	#popup.place(relx = 0.25, rely =0.25)
 	
 	#Make listbox for directories
 	direcs = tk.Listbox(popup, font = ("Consolas", 12),bg='#e15e28')
@@ -420,6 +414,11 @@ def pop_up():
 		direcs.insert(i, str(list_of_sessions[i]))
 	
 def load_direc():
+	
+	previewbutton['state'] = NORMAL
+	shutterbutton['state'] = NORMAL
+	statsplot['state'] = NORMAL
+	
 	selected_direc = direcs.curselection()
 	global direcname
 	direcname = direcs.get(selected_direc)
@@ -470,7 +469,6 @@ def load_direc():
 	photo_update()
 	plot_update()
 	
-	counter = counter + 1
 	popup.destroy()
 
 stop_time = print("Create functions: " + str(time.time() - start_time))
@@ -505,13 +503,13 @@ master.config(menu = mainmenu)
 master.config(bg="white")
 
 #make buttons
-previewbutton = tk.Button(master, text="Preview", font = ("Consolas", 22), command=preview,bg='#e15e28') #uncomment
+previewbutton = tk.Button(master, text="Preview", font = ("Consolas", 22), command=preview,bg='#e15e28', state = DISABLED) #uncomment
 previewbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.216) 
 
-shutterbutton = tk.Button(master, text="Capture", font = ("Consolas", 22), command=capturegui,background='#874ae2') #uncomment
+shutterbutton = tk.Button(master, text="Capture", font = ("Consolas", 22), command=capturegui,background='#874ae2', state = DISABLED) #uncomment
 shutterbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.412) 
 
-statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d')
+statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = DISABLED)
 statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 
 #make labels
@@ -527,7 +525,7 @@ lontk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.731)
 elevtk = Label(master, text = "Altitude (m): ",font = ("Consolas", 10),bg='#e7ac1d')
 elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
 
-session_hash = Label(master, text = direcname, font = ('Consolas', 15, 'bold'),
+session_hash = Label(master, text = "NONE", font = ('Consolas', 15, 'bold'),
             background = '#e15e28',
             foreground = 'black')
 session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
@@ -553,7 +551,5 @@ logo3 = ImageTk.PhotoImage(logo2)
 logoimg = Label(master, image=logo3, bg="white")
 logoimg.place(relheight=0.176, relwidth=0.098, relx=0.100, rely=0.02) 
 
-#destroy loading screen
-started = True
 while True:
 	master.mainloop()
