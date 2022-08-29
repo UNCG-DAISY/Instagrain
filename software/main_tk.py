@@ -17,10 +17,10 @@ from PIL import ImageTk, Image
 import PIL.Image
 import numpy as np
 import pandas as pd
-from pycoral.utils import edgetpu
-from pycoral.utils import dataset
-from pycoral.adapters import common
-from pycoral.adapters import classify
+# from pycoral.utils import edgetpu
+# from pycoral.utils import dataset
+# from pycoral.adapters import common
+# from pycoral.adapters import classify
 #Import time Packages 
 from time import sleep 
 from time import strftime
