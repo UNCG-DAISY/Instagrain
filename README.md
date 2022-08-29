@@ -32,7 +32,7 @@ Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
 0. Get in touch with us, we would be happy to collaborate!
 
-1. Check out our [wiki](https://github.com/UNCG-DAISY/Instagrain/wiki) to learn how about building and using the camera.  
+1. Check out our [wiki](https://github.com/UNCG-DAISY/Instagrain/wiki) to learn how to build and use the camera.  
 
 2. Read through the repository to look at the files/code we provide.
 
