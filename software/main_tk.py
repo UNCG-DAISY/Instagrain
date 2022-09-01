@@ -41,8 +41,8 @@ from tflite_runtime.interpreter import Interpreter
 stop_time = print("importing packages : " + str(time.time() - start_time))
 
 #software version 
-software_version = 0.1
-model_version = 0.1
+software_version = 0.2
+model_version = 0.2
 
 #define gpio pins and variables
 start_time = time.time()
