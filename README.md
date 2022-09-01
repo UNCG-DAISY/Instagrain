@@ -10,7 +10,7 @@ https://github.com/UNCG-DAISY/SandCam/commits/main)
 [![Wiki](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/UNCG-DAISY/Instagrain/wiki)
 [![Wiki](https://img.shields.io/badge/discussion-active-darkgreen)](https://github.com/UNCG-DAISY/Instagrain/discussions)
 
-[![DOI](https://zenodo.org/badge/365270610.svg)](https://zenodo.org/badge/latestdoi/365270610)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7041151.svg)](https://doi.org/10.5281/zenodo.7041151)
 
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
