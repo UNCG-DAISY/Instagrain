@@ -106,7 +106,7 @@ https://www.tensorflow.org/lite/guide/python
 
 create a `/models/` directory on the desktop and place the `*.tflite` file (the tflite model) in that directory.
 
-## set up Google Coral TPU   
+## set up Google Coral TPU (Optional)  
 Run the commands   
 `echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list`   
 `curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`   
