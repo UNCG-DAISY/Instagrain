@@ -12,29 +12,30 @@ import os
 import glob
 import datetime
 import subprocess
-#from PIL import Image#, ImageTk
+
 from PIL import ImageTk, Image
 import PIL.Image
 import numpy as np
 import pandas as pd
-# from pycoral.utils import edgetpu
-# from pycoral.utils import dataset
-# from pycoral.adapters import common
-# from pycoral.adapters import classify
-#Import time Packages 
+
+#Import time  
 from time import sleep 
 from time import strftime
+
 #Import NeoPixel Commands
 import board
 import neopixel
 import random, string
-#Import matplotlib
+
+#import plotting
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+
 #Import Tkinter
 from tkinter import *
 import tkinter as tk
 import threading
+
 #Import TF
 from tflite_runtime.interpreter import Interpreter
 
@@ -56,19 +57,10 @@ start_time = time.time()
 gpsd.connect()
 stop_time = print("GPS connect: " + str(time.time() - start_time))
 
-#Uncomment for use of google coral
-
-# path_to_model = "./models/SandCam_MNv2_QAT_notdense_edgetpu.tflite"
-# # Initialize the TF interpreter
-# interpreter = edgetpu.make_interpreter(path_to_model)
-# interpreter.allocate_tensors()
-# #uncomment lines below to debug and look at expected I/O
-# #print(interpreter.get_input_details())
-# #print(interpreter.get_output_details())
-# stop_time = print("TFLITE_stuff: " + str(time.time() - start_time))
 
 start_time = time.time()
-path_to_model = "./models/SandCam_MNv2_QAT_notdense.tflite"
+path_to_model = "./models/SandCam_MNv2_QAT_notdense_aug27.tflite"
+
 # Initialize the TF interpreter
 interpreter = Interpreter(path_to_model)
 interpreter.allocate_tensors()
@@ -234,14 +226,18 @@ def TFlitePred(crop_img):
     r_crop_img = converted_crop/255
     crop_img_exp = np.expand_dims(r_crop_img, axis=0)
  
-    common.set_input(interpreter, crop_img_exp)
+    input_index = interpreter.get_input_details()[0]["index"]
+    output_index = interpreter.get_output_details()[0]["index"]
+    interpreter.set_tensor(input_index, crop_img_exp)
     interpreter.invoke()
     
     global predictionstk
-    predictions = common.output_tensor(interpreter, 0)
-    predictionstk = predictions.tolist()
-    predictionstk = [round(num,3) for num in predictionstk[0]]
+    predictions = interpreter.get_tensor(output_index)
+    predictions = np.sort(predictions)
     print(predictions)
+    predictionstk = predictions.tolist()
+    #predictions = predictions.sort()
+    predictionstk = [round(num,3) for num in predictionstk[0]]
     
     stats = pd.DataFrame(predictions)
     statsrounded = stats.round(decimals=3)
@@ -542,7 +538,7 @@ stats.place(relheight=(1-0.648), width=listsize , x=listplace, rely=0.628)
 stop_time = print("make tk widgets function: " + str(time.time() - start_time))
 
 #create photo
-logo = '/home/pi/Documents/sand_cam/scripts/sandcam_logo_white-01.png'
+logo = '/home/pi/Documents/sand_cam/scripts/Logo.jpg'
 logo1 = PIL.Image.open(logo) 
 previewsize_h = screen_height * 0.176  
 previewsize_w = screen_width * 0.078
