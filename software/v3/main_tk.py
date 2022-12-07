@@ -6,7 +6,7 @@
 import time
 start_time = time.time()
 from gpiozero import Button, LED
-from picamera import PiCamera
+from picamera2 import Picamera2, Preview
 import gpsd
 import os
 import glob
@@ -48,8 +48,8 @@ model_version = 0.2
 #define gpio pins and variables
 start_time = time.time()
 pwd = os.getcwd()
-camera = PiCamera()
-camera.resolution = (2048,2048)
+camera = Picamera2()
+#camera.resolution = (2048,2048)
 stop_time = print("defining pins and vars: " + str(time.time() - start_time))
 
 #GPSD_connect
@@ -102,9 +102,12 @@ def capture():
 		alt1 = str(getattr(report,'alt','nan'))
 	if getattr(report,'time','nan')!= 'nan':
 		time = str(getattr(report,'time','nan'))
+	imName = str(newpath + '/' + str(counter) + '.jpg')
+	capture_config = camera.create_still_configuration({"size": (1900, 1900)})
+	camera.start(show_preview=True)
 	sleep(2)
-	camera.capture(newpath + '/' + str(counter) + '.jpg')
-	im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
+	camera.switch_mode_and_capture_file(capture_config, imName)
+	im = PIL.Image.open(imName)
 	crop_img = crop_center(im,1024,1024)
 	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
 	txtfile = open(newpath + '/' + direcname + '.csv', 'a')
@@ -131,11 +134,11 @@ def restart_gui():
 	global direcname
 	direcname = random_five()
 	global newpath
-	newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
+	newpath = "/home/sediment/Documents/data" + '/' + direcname
 	global croppath
-	croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
+	croppath = "/home/sediment/Documents/data" + '/' + direcname + '/crop'
 	global plotpath
-	plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
+	plotpath = "/home/sediment/Documents/data" + '/' + direcname + '/plot'
 	os.makedirs(newpath)
 	os.makedirs(croppath)
 	os.makedirs(plotpath)
@@ -180,11 +183,18 @@ def restart_gui():
             background = '#e15e28',
             foreground = 'black')
 	session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
-	
+
+
+camera_config = camera.create_preview_configuration()
+camera.configure(camera_config)
+
+
+
 def previewon():
 	import time
-	start_time = time.time()
-	camera.start_preview()
+	start_time = time.time() 
+	camera.start_preview(Preview.QTGL)
+	camera.start()
 	subprocess.call(["./ringledon.sh"])
 	stop_timer = time.time() - start_time
 	stop_time = print("preview on function: " + str(stop_timer))
@@ -192,7 +202,7 @@ def previewon():
 def previewoff():
 	import time
 	start_time = time.time()
-	camera.stop_preview()
+	#camera.stop_preview()
 	subprocess.call(["./ringledoff.sh"])
 	stop_timer = time.time() - start_time
 	stop_time = print("preview off function: " + str(stop_timer))
@@ -392,7 +402,7 @@ def coord_update():
 
 def pop_up():
 	global direcs
-	list_of_sessions = os.listdir('/home/pi/Documents/sand_cam/data')
+	list_of_sessions = os.listdir('/home/sediment/Documents/data')
 	global popup
 	popup = Toplevel(master)
 	popup.geometry(str(int(screen_width/2))+'x'+str(int(screen_height/2)))
@@ -420,13 +430,13 @@ def load_direc():
 	direcname = direcs.get(selected_direc)
 	
 	global newpath
-	newpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname
+	newpath = "/home/sediment/Documents/data" + '/' + direcname
 	
 	global croppath
-	croppath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/crop'
+	croppath = "/home/sediment/Documents/data" + '/' + direcname + '/crop'
 	
 	global plotpath
-	plotpath = "/home/pi/Documents/sand_cam/data" + '/' + direcname + '/plot'
+	plotpath = "/home/sediment/Documents/data" + '/' + direcname + '/plot'
 	
 	global textarg
 	textarg = str(newpath + '/' + direcname + '.csv')
@@ -487,7 +497,7 @@ listsize = screen_width - (previewsize + (.08*screen_width) + (screen_width*0.17
 listplace = (previewsize + (.06*screen_width) + (screen_width*0.176))
 
 #make title
-master.title('SandCam')
+master.title('Instagrain')
 
 #make menu options
 mainmenu = Menu(master)
@@ -509,7 +519,7 @@ statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = DISABLED)
 statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 
 #make labels
-sandcam = Label(master, text = "Sandcam", borderwidth=0, font = ("Consolas", 10), bg ="white")
+sandcam = Label(master, text = "Instagrain", borderwidth=0, font = ("Consolas", 10), bg ="white")
 sandcam.place(relheight=0.176, relwidth=0.088, relx=0.02, rely=0.02)
 
 lattk = Label(master, text = "Latitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
@@ -538,7 +548,7 @@ stats.place(relheight=(1-0.648), width=listsize , x=listplace, rely=0.628)
 stop_time = print("make tk widgets function: " + str(time.time() - start_time))
 
 #create photo
-logo = '/home/pi/Documents/sand_cam/scripts/Logo.jpg'
+logo = '/home/sediment/Documents/src/Logo.jpg'
 logo1 = PIL.Image.open(logo) 
 previewsize_h = screen_height * 0.176  
 previewsize_w = screen_width * 0.078
