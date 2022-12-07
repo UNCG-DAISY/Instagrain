@@ -5,7 +5,7 @@ Full List of Materials can be found on the BOMv3.csv, (currently a rough draft)
 ---
 ### Major Components
 
-- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/543790 additionally there is Digikey links available in the [`BOMv3.csv`]  
+- Most of the major Components can be ordered from our Adafruit wishlist http://www.adafruit.com/wishlists/561634 additionally there is Digikey links available in the [`BOMv3.csv`]  
   - The recommended microSD card can be bought on Amazon https://www.amazon.com/SanDisk-Extreme-microSDHC-UHS-3-SDSQXAF-032G-GN6MA/dp/B06XWMQ81P/
   - Due to chip shortages in 2021 and 2022, the Raspberry Pi 4 may not be available on Adafruit
 - There are two STEP files that can be sent to Polycase* to order the custom-designed, CNC-machined camera housing (expect 1 to 3 week lead time). Polycase should alread have the "setup" complete, which reduces the overall unit cost. 
