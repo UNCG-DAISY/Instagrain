@@ -102,6 +102,8 @@ def capture():
 		alt1 = str(getattr(report,'alt','nan'))
 	if getattr(report,'time','nan')!= 'nan':
 		time = str(getattr(report,'time','nan'))
+	time = time.replace("T", " ")
+	time = time.replace("Z", "")
 	imName = str(newpath + '/' + str(counter) + '.jpg')
 	capture_config = camera.create_still_configuration({"size": (1900, 1900)})
 	camera.start(show_preview=False)
