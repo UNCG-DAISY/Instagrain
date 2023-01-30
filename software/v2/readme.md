@@ -39,6 +39,11 @@ Power Raspberry pi on
 ## Install the MatPlotLib Package
 `sudo pip3 install maplotlib`
 
+## Install scipy
+`sudo apt-get install libatlas-base-dev`
+
+`pip3 install scipy`
+
 ## set up GPS
 
 `sudo raspi-config`    
