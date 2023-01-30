@@ -102,11 +102,14 @@ def capture():
 		alt1 = str(getattr(report,'alt','nan'))
 	if getattr(report,'time','nan')!= 'nan':
 		time = str(getattr(report,'time','nan'))
+	time = time.replace("T", " ")
+	time = time.replace("Z", "")
 	imName = str(newpath + '/' + str(counter) + '.jpg')
 	capture_config = camera.create_still_configuration({"size": (1900, 1900)})
-	camera.start(show_preview=True)
+	camera.start(show_preview=False)
 	sleep(2)
 	camera.switch_mode_and_capture_file(capture_config, imName)
+	camera.stop()
 	im = PIL.Image.open(imName)
 	crop_img = crop_center(im,1024,1024)
 	crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
@@ -173,7 +176,7 @@ def restart_gui():
 	elevtk = Label(master, text = "Altitude (m): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
 	elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
 	
-	preview = Label(master, text = "Sandcam", borderwidth=1, relief="solid",bg='#e7ac1d')
+	preview = Label(master, text = "Instagrain", borderwidth=1, relief="solid",bg='#e7ac1d',font = ("Consolas", 22))
 	preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02)
 	
 	statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = NORMAL)
@@ -188,24 +191,21 @@ def restart_gui():
 camera_config = camera.create_preview_configuration()
 camera.configure(camera_config)
 
-
-
-def previewon():
+#preview on/off
+def preview():
 	import time
+	#Ratios for Tkinter placement, should still work
+	#height=previewsize-.02, width=previewsize, relx=0.216, rely=0.02
 	start_time = time.time() 
-	camera.start_preview(Preview.QTGL)
-	camera.start()
+	camera.start_preview(Preview.QTGL, x = screen_width*0.216, y = screen_height*0.04, width = previewsize, height = previewsize)
 	subprocess.call(["./ringledon.sh"])
-	stop_timer = time.time() - start_time
-	stop_time = print("preview on function: " + str(stop_timer))
-	
-def previewoff():
-	import time
-	start_time = time.time()
-	#camera.stop_preview()
+	camera.start()
+	time.sleep(5)
+	camera.stop_preview()
+	camera.stop()
 	subprocess.call(["./ringledoff.sh"])
 	stop_timer = time.time() - start_time
-	stop_time = print("preview off function: " + str(stop_timer))
+	stop_time = print("preview on function: " + str(stop_timer))
 	
 def crop_center(pil_img, crop_width, crop_height):
    import time
@@ -374,16 +374,6 @@ def capturegui():
 	stop_timer = time.time() - start_time
 	stop_time = print("capturegui function: " + str(stop_timer))
 
-#preview on/off
-def preview():
-	import time
-	start_time = time.time()
-	previewon()
-	sleep(5)
-	previewoff()
-	stop_timer = time.time() - start_time
-	stop_time = print("preview function: " + str(stop_timer))
-
 #Update Coordinates on GUI
 def coord_update():
 	import time
@@ -493,6 +483,7 @@ print(screen_height)
 master.geometry(str(screen_width)+'x'+str(screen_height))
 
 previewsize = screen_height- (screen_height*0.10)
+print(previewsize)
 listsize = screen_width - (previewsize + (.08*screen_width) + (screen_width*0.176))
 listplace = (previewsize + (.06*screen_width) + (screen_width*0.176))
 
@@ -537,7 +528,7 @@ session_hash = Label(master, text = "NONE", font = ('Consolas', 15, 'bold'),
 session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
 
 ##create height variable
-preview = Label(master, text = "Sandcam", borderwidth=1, font = ("Consolas", 22), relief="solid",bg='#e7ac1d')
+preview = Label(master, text = "Instagrain", borderwidth=1, font = ("Consolas", 22), relief="solid",bg='#e7ac1d')
 preview.place(height=previewsize-.02, width=previewsize, relx=0.216, rely=0.02) #to fix so that no matter what it is square
 
 #make ListBox
