@@ -33,7 +33,13 @@ camera_config = picam2.create_preview_configuration()
 # Configure the camera using the preview configuration
 picam2.configure(camera_config)
 # Set the autofocus mode to continuous
-picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+#picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+# set autofocus to manual
+picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 9.8})
+#this is just playing with setting the exposure and gain
+#picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 9.8, "ExposureTime": 1565,"AnalogueGain": 1.123})
+
+#set lens position to 8.9 diopter
 # Start the camera preview
 picam2.start()
 # Stop the camera preview
@@ -98,6 +104,7 @@ def capture():
     #picam2.start()
     #sleep(2)
     picam2.start_and_capture_file(newpath + '/' + str(counter) + '.jpg')
+    picam2.stop_preview()
     #picam2.stop()
     im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
     crop_img = crop_center(im,1024,1024)
@@ -335,9 +342,8 @@ def capturegui():
 #preview on/off
 def preview():
     subprocess.call(["./ringledon.sh"])
-    picam2.start_preview(True)
-    #picam2.start(show_preview=True)
-    picam2.title_fields = ["ExposureTime", "AnalogueGain",]
+    picam2.start(show_preview=True)
+    picam2.title_fields = ["ExposureTime", "AnalogueGain","LensPosition"]
     time.sleep(5)
     picam2.stop_preview()
     #previewon()
