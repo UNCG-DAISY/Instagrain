@@ -24,13 +24,19 @@ software_version = 0.3
 model_version = 0.2
 
 
-#define gpio pins and variables
+# Get the current working directory
 pwd = os.getcwd()
+# Create a new instance of the Picamera2 class
 picam2 = Picamera2()
+# Create a preview configuration for the camera
 camera_config = picam2.create_preview_configuration()
+# Configure the camera using the preview configuration
 picam2.configure(camera_config)
+# Set the autofocus mode to continuous
 picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+# Start the camera preview
 picam2.start()
+# Stop the camera preview
 picam2.stop_preview()
 #camera.resolution = (2048,2048)
 
@@ -56,6 +62,14 @@ counter = 0
 
 #start_time = time.time()
 def capture():
+    """
+    This function captures an image using a camera and extracts GPS data to save along with the image.
+    The captured image is cropped to a size of 1024 x 1024 pixels and saved in a specified directory.
+
+    Returns:
+    None
+    """
+
     global counter
     counter = counter + 1
     #get GNSS data
@@ -68,6 +82,8 @@ def capture():
     time = "na"
     report = gpsd.get_current()
 
+	
+    # Print the GNSS data and save the latitude, longitude, elevation, and time values
     print(report)
     if getattr(report,'lat',0.0)!=0:
         lat1 = str(getattr(report,'lat',0.0))
@@ -77,6 +93,8 @@ def capture():
         elev1 = str(getattr(report,'elev','nan'))
     if getattr(report,'time','nan')!= 'nan':
         time = str(getattr(report,'time','nan'))
+	
+    # Capture an image using the camera, crop it to 1024 x 1024 pixels, and save it in the specified directory
     #picam2.start()
     #sleep(2)
     picam2.start_and_capture_file(newpath + '/' + str(counter) + '.jpg')
@@ -84,11 +102,13 @@ def capture():
     im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
     crop_img = crop_center(im,1024,1024)
     crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
+    
+    # Save the GPS data along with the image in a CSV file
     txtfile = open(newpath + '/' + direcname + '.csv', 'a')
     txtfile.write( str(counter) + ',' + str(time) +
     ',' + lat1 + ',' + lon1 + ','+ elev1 + ',')
     txtfile.close()
-    
+
     print(lat1)
     print(lon1)
     print(elev1)
@@ -98,6 +118,11 @@ def capture():
     print(counter)
 
 def restart_gui():
+    """
+    Description: This function resets the GUI and creates a new session directory with a random name. 
+    It also creates a new text file in the directory to store data and sets up labels and buttons for the GUI.
+    """
+
     global counter
     counter = 0
     print(counter)
@@ -248,6 +273,14 @@ def change_plt():
 
      
 def plot_update():
+    """
+    This function updates a plot of data displayed in a tkinter GUI window. 
+    It checks the value of a global variable called current_plt and based on its value, 
+    it loads an image file of the plot from the specified plotpath directory. 
+    It then creates a Button widget in the tkinter GUI window with the loaded 
+    plot image and sets its size and position using the place() method. 
+    Finally, it updates the plot widget using the update() method.
+    """
     global grainplot
     if current_plt == 1:
         plotfile = plotpath + "/" + "CDF" + str(counter) + ".png"
@@ -263,6 +296,14 @@ def plot_update():
         statsplot.update()
     
 def photo_update():
+    """
+    This function is responsible for updating the preview image on the screen. 
+    It opens the image file saved in the 'crop' folder with the corresponding counter value. 
+    Then, it resizes the image to fit the maximum square size possible in the 
+    middle of the screen. Finally, it creates a new Tkinter PhotoImage object from 
+    the resized image and places it in a Label widget. The widget is then positioned 
+    on the screen and updated to show the new image.
+    """
     #Need to add loading parameter because the computer doesnt know if it is
     #starting a new parameter or loading one 
     #place image on screen
@@ -317,6 +358,14 @@ def coord_update():
     elevtk.update()
 
 def pop_up():
+    """
+    creates a popup window. It gets a list of directories and creates a Listbox to show these 
+    directories. Additionally, it creates a button with text "Load Session" that can be clicked 
+    to load a directory from the list. When the button is clicked, the load_direc() function 
+    is called. The size and position of the popup window are defined using the geometry() method. 
+    The function makes use of global variables direcs and popup.
+    """
+
     global direcs
     list_of_sessions = os.listdir('/home/sediment/Documents/data')
     global popup
@@ -336,6 +385,15 @@ def pop_up():
         direcs.insert(i, str(list_of_sessions[i]))
     
 def load_direc():
+    """
+    Loads the selected session directory from the pop-up window and updates various widgets in the main window.
+    It first enables certain buttons and widgets on the main window such as preview button, shutter button and stats plot. 
+    Then, it gets the selected directory name from the listbox, creates the paths for crop, plot, and 
+    csv files based on the selected directory name. It then reads the last line of the csv file to get the counter 
+    and other values such as lat1, lon1, elev1 and predictionstk. The function updates various widgets in the main window 
+    by calling other functions like coord_update(), stats_update(), photo_update() and plot_update(). 
+    Finally, it destroys the pop-up window.
+    """
     
     previewbutton['state'] = NORMAL
     shutterbutton['state'] = NORMAL
