@@ -8,7 +8,7 @@ from time import sleep
 from picamera2 import Picamera2, Preview
 from libcamera import controls
 import gpsd
-import os, subprocess
+import os, subprocess, sys
 from PIL import ImageTk
 import PIL.Image
 import numpy as np
@@ -30,6 +30,7 @@ pwd = os.getcwd()
 picam2 = Picamera2()
 # Create a preview configuration for the camera
 camera_config = picam2.create_preview_configuration()
+camera_config = picam2.create_still_configuration({"size" :(2048,2048)})
 # Configure the camera using the preview configuration
 picam2.configure(camera_config)
 # Set the autofocus mode to continuous
@@ -39,11 +40,11 @@ picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 9.8})
 #this is just playing with setting the exposure and gain
 #picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 9.8, "ExposureTime": 1565,"AnalogueGain": 1.123})
 
-#set lens position to 8.9 diopter
+#set lens position to 9.8 diopter
 # Start the camera preview
-picam2.start()
+#picam2.start()
 # Stop the camera preview
-picam2.stop_preview()
+#picam2.stop_preview()
 #camera.resolution = (2048,2048)
 
 #GPSD_connect
@@ -101,11 +102,11 @@ def capture():
         time = str(getattr(report,'time','nan'))
 	
     # Capture an image using the camera, crop it to 1024 x 1024 pixels, and save it in the specified directory
-    #picam2.start()
-    #sleep(2)
-    picam2.start_and_capture_file(newpath + '/' + str(counter) + '.jpg')
-    picam2.stop_preview()
-    #picam2.stop()
+    picam2.start()
+    sleep(1)
+    #picam2.start_and_capture_file(newpath + '/' + str(counter) + '.jpg')
+    picam2.capture_file(newpath + '/' + str(counter) + '.jpg')
+    picam2.stop()
     im = PIL.Image.open(str(newpath + '/' + str(counter) + '.jpg'))
     crop_img = crop_center(im,1024,1024)
     crop_img.save(croppath + '/crop' + str(counter) + '.jpg')
@@ -167,22 +168,22 @@ def restart_gui():
     
     stats.delete(0,END)
     
-    lattk = Label(master, text = "Latitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    lattk = Label(main, text = "Latitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     lattk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.608)
 
-    lontk = Label(master, text = "Longitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    lontk = Label(main, text = "Longitude (DD): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     lontk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.731)
 
-    elevtk = Label(master, text = "Elevation (m): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    elevtk = Label(main, text = "Elevation (m): ", borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
     
-    preview = Label(master, text = "Instagrain", borderwidth=1, relief="solid",bg='#e7ac1d')
+    preview = Label(main, text = "Instagrain", borderwidth=1, relief="solid",bg='#e7ac1d')
     preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02)
     
-    statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = NORMAL)
+    statsplot = tk.Button(main, text = "Plot",bg='#e7ac1d', state = NORMAL)
     statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
     
-    session_hash = Label(master, text = direcname, font = ('Consolas', 15, 'bold'),
+    session_hash = Label(main, text = direcname, font = ('Consolas', 15, 'bold'),
             background = '#e15e28',
             foreground = 'black')
     session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
@@ -292,13 +293,13 @@ def plot_update():
     if current_plt == 1:
         plotfile = plotpath + "/" + "CDF" + str(counter) + ".png"
         grainplot = tk.PhotoImage(file=plotfile)
-        statsplot = tk.Button(master, image=grainplot, command=change_plt, bg='#e7ac1d')
+        statsplot = tk.Button(main, image=grainplot, command=change_plt, bg='#e7ac1d')
         statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
         statsplot.update()
     else:
         plotfile = plotpath + "/" + "CDF_linear_" + str(counter) + ".png"
         grainplot = tk.PhotoImage(file=plotfile)
-        statsplot = tk.Button(master, image=grainplot, command=change_plt,bg='#e7ac1d')
+        statsplot = tk.Button(main, image=grainplot, command=change_plt,bg='#e7ac1d')
         statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
         statsplot.update()
     
@@ -320,7 +321,7 @@ def photo_update():
     previewsize = screen_height - (screen_height*0.10) #this creates the maximum square size we can have in the middle of the screen
     img2 = img1.resize((int(previewsize),int(previewsize)))
     img3 = ImageTk.PhotoImage(img2)
-    preview = Label(master, image=img3)
+    preview = Label(main, image=img3)
     preview.place(height=previewsize, width=previewsize, relx=0.216, rely=0.02) #to fix so that no matter what it is square
     preview.update()
         
@@ -341,25 +342,26 @@ def capturegui():
 
 #preview on/off
 def preview():
-    subprocess.call(["./ringledon.sh"])
-    picam2.start(show_preview=True)
-    picam2.title_fields = ["ExposureTime", "AnalogueGain","LensPosition"]
-    time.sleep(5)
-    picam2.stop_preview()
-    #previewon()
-    #sleep(5)
-    #previewoff()
-    subprocess.call(["./ringledoff.sh"])
+    sleep(0.1)
+#     subprocess.call(["./ringledon.sh"])
+#     picam2.start(show_preview=True)
+#     picam2.title_fields = ["ExposureTime", "AnalogueGain","LensPosition"]
+#     time.sleep(5)
+#     picam2.stop_preview()
+#     #previewon()
+#     #sleep(5)
+#     #previewoff()
+#     subprocess.call(["./ringledoff.sh"])
 
 #Update Coordinates on GUI
 def coord_update():
-    lattk = Label(master, text = "Latitude (DD): " +"\n"+ str(lat1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    lattk = Label(main, text = "Latitude (DD): " +"\n"+ str(lat1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     lattk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.608)
     lattk.update() #would it be better to make this global or put it in the capture function
-    lontk = Label(master, text = "Longitude (DD): " +"\n"+ str(lon1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    lontk = Label(main, text = "Longitude (DD): " +"\n"+ str(lon1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     lontk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.731)
     lontk.update()
-    elevtk = Label(master, text = "Elevation (m): " +"\n"+ str(elev1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
+    elevtk = Label(main, text = "Elevation (m): " +"\n"+ str(elev1), borderwidth=1, relief="solid",font = ("Consolas", 10),bg='#e7ac1d')
     elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
     elevtk.update()
 
@@ -375,7 +377,7 @@ def pop_up():
     global direcs
     list_of_sessions = os.listdir('/home/sediment/Documents/data')
     global popup
-    popup = Toplevel(master)
+    popup = Toplevel(main)
     popup.geometry(str(int(screen_width/2))+'x'+str(int(screen_height/2)))
     #popup.place(relx = 0.25, rely =0.25)
     
@@ -421,7 +423,7 @@ def load_direc():
     global textarg
     textarg = str(newpath + '/' + direcname + '.csv')
     
-    session_hash = Label(master, text = direcname, font = ('Consolas', 15, 'bold'),
+    session_hash = Label(main, text = direcname, font = ('Consolas', 15, 'bold'),
             background = '#e15e28',
             foreground = 'black')
     session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
@@ -457,66 +459,71 @@ def load_direc():
 
 #create main window
 
-master = tk.Tk()
+main = tk.Tk()
 
 #define ratios
-screen_width = master.winfo_screenwidth()
-screen_height = master.winfo_screenheight()
+screen_width = main.winfo_screenwidth()
+screen_height = main.winfo_screenheight()
 print(screen_width)
 print(screen_height)
-master.geometry(str(screen_width)+'x'+str(screen_height))
+main.geometry(str(screen_width)+'x'+str(screen_height))
 
 previewsize = screen_height- (screen_height*0.10)
 listsize = screen_width - (previewsize + (.08*screen_width) + (screen_width*0.176))
 listplace = (previewsize + (.06*screen_width) + (screen_width*0.176))
 
 #make title
-master.title('Instagrain')
+main.title('Instagrain')
+
+#make exit fn
+def exit_program():
+    main.destroy()
+    sys.exit()
 
 #make menu options
-mainmenu = Menu(master)
+mainmenu = Menu(main)
 mainmenu.add_command(label = "Load", command = pop_up)
 mainmenu.add_command(label = "New", command = restart_gui)
-mainmenu.add_command(label = "Exit", command = master.destroy)
+mainmenu.add_command(label = "Exit", command = exit_program)
 
-master.config(menu = mainmenu)
-master.config(bg="white")
+main.config(menu = mainmenu)
+main.config(bg="white")
 
 #make buttons
-previewbutton = tk.Button(master, text="Preview", font = ("Consolas", 22), command=preview,bg='#e15e28', state = DISABLED) #uncomment
+previewbutton = tk.Button(main, text="Preview", font = ("Consolas", 22), command=preview,bg='#e15e28', state = DISABLED) #uncomment
 previewbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.216) 
 
-shutterbutton = tk.Button(master, text="Capture", font = ("Consolas", 22), command=capturegui,background='#874ae2', state = DISABLED) #uncomment
+shutterbutton = tk.Button(main, text="Capture", font = ("Consolas", 22), command=capturegui,background='#874ae2', state = DISABLED) #uncomment
 shutterbutton.place(relheight=0.176, relwidth=0.176, relx=0.02, rely=0.412) 
 
-statsplot = tk.Button(master, text = "Plot",bg='#e7ac1d', state = DISABLED)
+statsplot = tk.Button(main, text = "Plot",bg='#e7ac1d', state = DISABLED)
 statsplot.place(relheight=0.508, width=listsize , x=listplace, rely=0.098)
 
 #make labels
-sandcam = Label(master, text = "Instagrain", borderwidth=0, font = ("Consolas", 10), bg ="white")
+sandcam = Label(main, text = "Instagrain", borderwidth=0, font = ("Consolas", 10), bg ="white")
 sandcam.place(relheight=0.176, relwidth=0.088, relx=0.02, rely=0.02)
 
-lattk = Label(master, text = "Latitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
+lattk = Label(main, text = "Latitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
 lattk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.608)
 
-lontk = Label(master, text = "Longitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
+lontk = Label(main, text = "Longitude (DD): ",font = ("Consolas", 10),bg='#e7ac1d')
 lontk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.731)
 
-elevtk = Label(master, text = "Elevation (m): ",font = ("Consolas", 10),bg='#e7ac1d')
+elevtk = Label(main, text = "Elevation (m): ",font = ("Consolas", 10),bg='#e7ac1d')
 elevtk.place(relheight=0.123, relwidth=0.176, relx=0.02, rely=0.854)
 
-session_hash = Label(master, text = "NONE", font = ('Consolas', 15, 'bold'),
+session_hash = Label(main, text = "NONE", font = ('Consolas', 15, 'bold'),
             background = '#e15e28',
             foreground = 'black')
 session_hash.place(x=listplace, rely=0.02, relheight=0.058, width=listsize)
 
 ##create height variable
-preview = Label(master, text = "Sandcam", borderwidth=1, font = ("Consolas", 22), relief="solid",bg='#e7ac1d')
+preview = Label(main, text = "Sandcam", borderwidth=1, font = ("Consolas", 22), relief="solid",bg='#e7ac1d')
 preview.place(height=previewsize-.02, width=previewsize, relx=0.216, rely=0.02) #to fix so that no matter what it is square
 
 #make ListBox
 
-stats = tk.Listbox(master, borderwidth=1, relief="solid", font = ("Consolas", 8),bg='#e7ac1d')
+stats = tk.Listbox(main, borderwidth=1, relief="solid", font = ("Consolas", 8),bg='#e7ac1d')
 stats.place(relheight=(1-0.648), width=listsize , x=listplace, rely=0.628)
 
 #create photo
@@ -526,8 +533,8 @@ previewsize_h = screen_height * 0.176
 previewsize_w = screen_width * 0.078
 logo2 = logo1.resize((int(previewsize_h),int(previewsize_w)))
 logo3 = ImageTk.PhotoImage(logo2)
-logoimg = Label(master, image=logo3, bg="white")
+logoimg = Label(main, image=logo3, bg="white")
 logoimg.place(relheight=0.176, relwidth=0.098, relx=0.100, rely=0.02) 
 
 while True:
-    master.mainloop()
+    main.mainloop()
