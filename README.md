@@ -23,12 +23,12 @@ We have several working prototypes out in the field. Here at HQ we continue to r
 
 Prototype 1 (3D printed case)
 
-<img src="./assets/SNC.jpg" width=20% height=20%/>
+<img src="./assets/SNC.jpg" width=40% height=40%/>
 
 Prototype 2 (current version; CNC'ed case and 3D printed parts)
 
-<img src="./assets/CamDB_2.jpg" width=20% height=20%/>
-<img src="./assets/CamDB._1.jpg" width=20% height=20%/>
+<img src="./assets/CamDB_2.jpg" width=40% height=40%/>
+<img src="./assets/CamDB._1.jpg" width=40% height=40%/>
 
 ## Do you want to be involved?:
 
