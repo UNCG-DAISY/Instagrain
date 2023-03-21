@@ -1,3 +1,12 @@
+# Camera hardware readme for v2
+
+
+** please note that there are multiple versions of both the camera case and the electronics/hardware. **
+
+You are looking at V2, where the case is a custom CNC'ed polycase enclosure and a few 3D printed parts. We recommend an SLA printer (we used a Formlab 3/3+ and Grey pro resin), but have heard of success using an FDM printer. 
+
+
+
 # BOM v2
 
 Full List of Materials can be found on the [`BOMv2.csv`](./BOMv2.csv)
