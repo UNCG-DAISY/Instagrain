@@ -10,8 +10,6 @@ V2: This new case is a custom CNC'ed polycase enclosure and a few 3D printed par
 
 V3: A smaller custom CNC'ed polycase enclosure, with fewer mounting points, and iterating on some design choices. Again there are a few 3D printed parts, and we recommend an SLA printer (we used a Formlab 3/3+ and Grey pro resin), but have heard of success using an FDM printer. The mounting holes for the Google Coral edgeTPU are eliminated, we switched to a USB GPS to simplify the BOM/parts list.
 
-In the future, we hope to provide an even smaller form factor, but the full size RPi-branded 7 inch touchscreen is extremely nice to work with, both in the field and in the lab.
-
 Notes:
 - All `.stp` files can be viewed using [Autodesk Viewer](https://viewer.autodesk.com)
 - The camera tent is interchangeable between V2 and V3, as is the ring light holder. (but the screen brackets are different between V2 and V3)
